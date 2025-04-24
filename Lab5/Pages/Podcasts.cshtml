@@ -1,0 +1,185 @@
+﻿@page
+@model Lab5.Pages.PodcastsModel
+@{
+    ViewData["Title"] = "Подкасты";
+}
+
+@* Добавляем стили, специфичные для этой страницы *@
+<style>
+    /* Стили для секции поиска (можно вынести в site.css, если еще не там) */
+    .search-section {
+        background-color: #F8DFAC;
+        padding: 40px 0;
+    }
+
+    .search-input-container {
+        max-width: 600px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .search-icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px;
+        height: 24px;
+        opacity: 0.7;
+        pointer-events: none;
+    }
+
+    /* Стили для элемента подкаста */
+    .podcast-item {
+        display: flex; /* Используем flexbox для расположения картинки и контента */
+        align-items: center; /* Выравниваем элементы по центру по вертикали */
+        background-color: #fff; /* Белый фон */
+        padding: 20px; /* Внутренние отступы */
+        margin-bottom: 25px; /* Отступ снизу между подкастами */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); /* Легкая тень */
+        border-radius: 8px; /* Небольшое скругление углов */
+        gap: 20px; /* Пространство между картинкой и контентом */
+    }
+
+    .podcast-image img {
+        max-width: 150px; /* Ограничиваем ширину картинки */
+        height: auto; /* Позволяем высоте подстраиваться */
+        display: block; /* Убираем лишние отступы под картинкой */
+        border-radius: 4px; /* Слегка скругляем углы картинки */
+    }
+
+    .podcast-content {
+        flex-grow: 1; /* Позволяем блоку с контентом занять оставшееся место */
+        position: relative; /* Для позиционирования иконки закладки */
+        min-width: 0; /* Предотвращает "выталкивание" элементов при сужении */
+    }
+
+    .podcast-title {
+        font-size: 1.2rem; /* Размер заголовка */
+        font-weight: 600; /* Полужирный шрифт */
+        margin-bottom: 15px; /* Отступ под заголовком */
+        padding-right: 30px; /* Добавляем место справа, чтобы текст не заходил под иконку закладки */
+    }
+
+    .podcast-bookmark {
+        position: absolute; /* Абсолютное позиционирование */
+        top: 0; /* Сверху */
+        right: 0; /* Справа */
+        width: 24px; /* Размер иконки */
+        height: 24px;
+        cursor: pointer; /* Показываем, что можно нажать */
+        /* Можно использовать background-image или SVG */
+    }
+
+    /* Стили для плеера */
+    .podcast-player {
+        display: flex;
+        align-items: center;
+        gap: 10px; /* Расстояние между элементами плеера */
+        width: 100%; /* Занимает всю доступную ширину */
+    }
+
+    .play-button {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        font-size: 1.8rem; /* Размер иконки play */
+        color: #333; /* Цвет иконки */
+        line-height: 1; /* Убираем лишнюю высоту строки */
+        flex-shrink: 0; /* Не сжимаем кнопку */
+    }
+        /* Можно использовать SVG или иконочный шрифт для кнопки play */
+        .play-button::before {
+            /* Для примера используем простой символ. Лучше SVG или иконку */
+            content: '▶';
+        }
+    /* Если плеер активен, можно менять иконку на паузу */
+    /* .podcast-player.playing .play-button::before { content: '❚❚'; } */
+
+
+    .progress-bar-container {
+        flex-grow: 1; /* Занимает все доступное пространство */
+        height: 6px; /* Высота полосы прогресса */
+        background-color: #e9ecef; /* Цвет фона полосы */
+        border-radius: 3px;
+        cursor: pointer;
+        position: relative; /* Для отображения текущего прогресса */
+        overflow: hidden; /* Скрываем выходящий за границы прогресс */
+    }
+
+    .progress-bar {
+        height: 100%;
+        width: 0%; /* Начальная ширина прогресса (будет меняться JS) */
+        background-color: #4B848B; /* Цвет заполненной части (из вашего CSS) */
+        border-radius: 3px;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .time-display {
+        font-size: 0.85rem;
+        color: #6c757d; /* text-muted цвет */
+        white-space: nowrap; /* Запрещаем перенос времени */
+        flex-shrink: 0; /* Не сжимаем блок времени */
+    }
+
+    .current-time {
+        margin-right: 5px; /* Небольшой отступ справа от текущего времени */
+    }
+
+</style>
+
+<!-- Секция Поиска (такая же, как на странице Статей) -->
+<div class="search-section text-center mb-5">
+    <div class="container">
+        <h2 class="mb-4 fw-bold">Что вас интересует?</h2>
+        <div class="search-input-container">
+            <input type="text" class="form-control form-control-lg" placeholder="Поиск..">
+            @* ВАЖНО: Укажите правильный путь к иконке поиска *@
+            <img src="~/images/search.svg" alt="Поиск" class="search-icon" />
+        </div>
+    </div>
+</div>
+
+<!-- Список Подкастов -->
+<div class="container">
+
+    @* В реальном приложении здесь был бы цикл @foreach (var podcast in Model.Podcasts) *@
+
+    <!-- Пример одного элемента подкаста -->
+    <div class="podcast-item">
+        <div class="podcast-image">
+            @* ВАЖНО: Укажите правильный путь к картинке подкаста *@
+            <img src="~/images/imgArticle.jpg" alt="Обложка подкаста Виды Отдыха">
+        </div>
+        <div class="podcast-content">
+            <h5 class="podcast-title">Виды отдыха, которые нужно научиться различать</h5>
+
+            @* Иконка закладки (замените src или используйте иконочный шрифт) *@
+            <img src="~/images/bookmark_off.svg" alt="Добавить в закладки" class="podcast-bookmark" />
+
+            @* Плеер (визуальное представление) *@
+            <div class="podcast-player">
+                <button class="play-button" aria-label="Воспроизвести"></button>
+                <span class="time-display current-time">00:00</span>
+                <div class="progress-bar-container" role="slider" aria-valuenow="0" aria-valuemin="0" aria-valuemax="313" aria-label="Прогресс воспроизведения">
+                    <div class="progress-bar"></div>
+                </div>
+                <span class="time-display total-duration">5:13 мин</span>
+            </div>
+        </div>
+    </div>
+
+    @* Сюда можно добавлять другие podcast-item *@
+
+</div>
+
+@* 
+    Примечание: Представленный плеер является только визуальной симуляцией. 
+    Для реального воспроизведения аудио потребуется:
+    1. HTML5 тег <audio> (возможно, скрытый).
+    2. JavaScript для управления воспроизведением/паузой, 
+       обновления полосы прогресса и времени при проигрывании.
+*@

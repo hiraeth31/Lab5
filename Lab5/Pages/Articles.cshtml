@@ -1,0 +1,155 @@
+﻿@page
+@model Lab5.Pages.ArticlesModel
+@{
+    ViewData["Title"] = "Статьи";
+}
+
+@* 
+   Добавляем блок <style> прямо здесь для специфичных стилей этой страницы.
+   Альтернативно, вы можете перенести эти стили в ваш файл site.css,
+   если хотите сохранить все стили в одном месте.
+*@
+<style>
+    /* Стили для секции поиска */
+    .search-section {
+        /* Используем цвет из вашего site.css или напрямую */
+        background-color: #F8DFAC;
+        padding: 40px 0; /* Отступы сверху/снизу */
+    }
+
+    /* Контейнер для поля поиска, чтобы ограничить ширину и центрировать */
+    .search-input-container {
+        max-width: 600px; /* Максимальная ширина поля поиска */
+        margin: 0 auto; /* Центрирование блока */
+        position: relative; /* Необходимо для позиционирования иконки */
+    }
+
+    /* Стиль для иконки поиска внутри поля */
+    .search-icon {
+        position: absolute; /* Абсолютное позиционирование */
+        right: 15px; /* Отступ справа */
+        top: 50%; /* Позиционируем по центру вертикали */
+        transform: translateY(-50%); /* Точная центровка по вертикали */
+        width: 24px; /* Ширина иконки */
+        height: 24px; /* Высота иконки */
+        opacity: 0.7; /* Небольшая прозрачность, как на картинке */
+        pointer-events: none; /* Чтобы иконка не мешала клику на input */
+    }
+
+    /* Стили для карточек статей, чтобы лучше соответствовать картинке */
+    .article-card {
+        border: none; /* Убираем стандартную рамку Bootstrap, если нужно */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Небольшая тень для объема */
+        transition: transform 0.2s ease-in-out; /* Плавный переход для hover-эффекта */
+        background-color: #fff; /* Явный белый фон */
+        border-radius: 0.375rem; /* Стандартное скругление углов Bootstrap */
+        overflow: hidden; /* Скрываем все, что выходит за скругленные углы */
+        height: 100%; /* Заставляем карточку занимать всю высоту колонки (в связке с d-flex) */
+    }
+
+        .article-card:hover {
+            transform: translateY(-5px); /* Легкий подъем при наведении */
+        }
+
+        .article-card .card-img-top {
+            /* Можно задать высоту или соотношение сторон, если картинки разного размера */
+            /* aspect-ratio: 16 / 9; object-fit: cover; */
+            border-top-left-radius: 0; /* Убираем скругление, если не нужно */
+            border-top-right-radius: 0;
+        }
+
+        .article-card .card-body {
+            display: flex; /* Включаем Flexbox */
+            flex-direction: column; /* Элементы располагаются вертикально */
+            padding: 1.5rem; /* Увеличим внутренние отступы */
+            flex-grow: 1; /* Позволяем телу карточки растягиваться */
+        }
+
+        .article-card .card-title {
+            font-weight: bold; /* Жирный заголовок */
+            margin-bottom: 1rem; /* Отступ под заголовком */
+            /* Убедимся, что заголовок не занимает все место */
+            flex-shrink: 0;
+        }
+
+        .article-card .card-date {
+            margin-top: auto; /* Прижимает дату к низу карточки */
+            font-size: 0.9em; /* Немного уменьшаем шрифт даты */
+            color: #6c757d; /* Цвет "text-muted" из Bootstrap */
+            text-align: right; /* Выравнивание текста даты по правому краю */
+            padding-top: 1rem; /* Добавляем отступ сверху перед датой */
+        }
+
+</style>
+
+<!-- Секция Поиска -->
+<div class="search-section text-center mb-5">
+    @* mb-5 добавляет отступ снизу *@
+    <div class="container">
+        <h2 class="mb-4 fw-bold">Что вас интересует?</h2>
+        <div class="search-input-container">
+            <input type="text" class="form-control form-control-lg" placeholder="Поиск..">
+            @* 
+                Используем тег <img> для иконки. 
+                ВАЖНО: Замените src на реальный путь к вашей иконке поиска в папке wwwroot.
+                Например: ~/images/search-icon.png 
+                Иконку можно скачать с сервисов иконок или нарисовать.
+            *@
+            <img src="~/images/search.svg" alt="Поиск" class="search-icon" />
+            @* 
+                Альтернатива: если используете иконочный шрифт (Font Awesome, Bootstrap Icons), 
+                то можно использовать <i class="bi bi-search search-icon"></i> (пример для Bootstrap Icons)
+            *@
+        </div>
+    </div>
+</div>
+
+<!-- Сетка Статей -->
+<div class="container">
+    <div class="row">
+
+        <!-- Карточка Статьи 1 -->
+        <div class="col-lg-6 mb-4 d-flex align-items-stretch">
+            @* 
+                col-lg-6: На больших экранах (lg) карточка занимает 6 из 12 колонок (т.е. половину). На меньших - будет занимать всю ширину.
+                mb-4: Отступ снизу.
+                d-flex align-items-stretch: Заставляет карточки в одном ряду иметь одинаковую высоту.
+            *@
+            <div class="card article-card w-100">
+                @* w-100 гарантирует, что карточка займет всю ширину колонки *@
+                @* ВАЖНО: Замените src на реальный путь к вашему изображению статьи в папке wwwroot *@
+                <img src="~/images/imgArticle.jpg" class="card-img-top" alt="Иллюстрация: два человека ведут сложный разговор">
+                <div class="card-body">
+                    <h5 class="card-title">Вам трудно вести сложные разговоры?</h5>
+                    <p class="card-date">02.03.2025</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Карточка Статьи 2 -->
+        <div class="col-lg-6 mb-4 d-flex align-items-stretch">
+            <div class="card article-card w-100">
+                @* ВАЖНО: Замените src на реальный путь к вашему изображению статьи в папке wwwroot *@
+                <img src="~/images/imgArticle.jpg" class="card-img-top" alt="Иллюстрация: женщина размышляет под символом идеи (лампочка)">
+                <div class="card-body">
+                    <h5 class="card-title">Что такое синдром самозванца: связан ли он с личностью?</h5>
+                    <p class="card-date">01.03.2025</p>
+                </div>
+            </div>
+        </div>
+
+        @* 
+            Сюда можно добавлять другие статьи по аналогии:
+            <div class="col-lg-6 mb-4 d-flex align-items-stretch">
+                 <div class="card article-card w-100">
+                    <img src="ПУТЬ_К_КАРТИНКЕ" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Заголовок Другой Статьи</h5>
+                        <p class="card-date">ДД.ММ.ГГГГ</p>
+                    </div>
+                 </div>
+            </div>
+        *@
+
+    </div>
+</div>
