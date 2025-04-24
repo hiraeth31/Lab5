@@ -7,55 +7,79 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Lab5.styles.css" asp-append-version="true" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-md py-3" style="background-color: #F8DFAC;">
             <div class="container">
-                <!-- Логотип "Be Better" -->
                 <img src="~/images/heart.svg" alt="Обложка подкаста Виды Отдыха" class="mainImg">
-                <a class="navbar-brand fw-bold fs-3" href="#" style="color: #333;">Be Better</a>
+                <a class="navbar-brand fw-bold fs-3" asp-page="/Index" style="color: #333;">Be Better</a>
 
-                <!-- Кнопка для мобильного меню -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <!-- Основное меню -->
                 <div class="collapse navbar-collapse" id="navbarContent">
+                    @* Основное меню слева *@
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link px-3 @(ViewContext.RouteData.Values["Page"] == "/Index" ? "active" : "")"
+                            <a class="nav-link px-3 @(ViewContext.RouteData.Values["Page"]?.ToString() == "/Index" ? "active" : "")"
                                asp-page="/Index">Главная</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link px-3 @(ViewContext.RouteData.Values["Page"] == "/Articles" ? "active" : "")"
+                            <a class="nav-link px-3 @(ViewContext.RouteData.Values["Page"]?.ToString() == "/Articles" ? "active" : "")"
                                asp-page="/Articles">Статьи</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link px-3 @(ViewContext.RouteData.Values["Page"] == "/Podcasts" ? "active" : "")"
+                            <a class="nav-link px-3 @(ViewContext.RouteData.Values["Page"]?.ToString() == "/Podcasts" ? "active" : "")"
                                asp-page="/Podcasts">Подкасты</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link px-3 @(ViewContext.RouteData.Values["Page"] == "/About" ? "active" : "")"
+                            <a class="nav-link px-3 @(ViewContext.RouteData.Values["Page"]?.ToString() == "/About" ? "active" : "")"
                                asp-page="/About">О нас</a>
                         </li>
                     </ul>
 
-                    <!-- Кнопка "Вход" -->
-                    <button class="btn login-btn px-4">Вход</button>
+                    @* Меню справа (Вход или Профиль/Закладки) *@
+                    <div class="navbar-nav ms-auto">
+                        @* Используем navbar-nav и ms-auto *@
+                        @if (User.Identity != null && User.Identity.IsAuthenticated)
+                        {
+                            @* Ссылки для авторизованного пользователя *@
+                            <li class="nav-item">
+                                <a class="nav-link px-3 @(ViewContext.RouteData.Values["Page"]?.ToString() == "/Bookmarks" ? "active" : "")"
+                                   asp-page="/Bookmarks">Закладки</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link px-3 @(ViewContext.RouteData.Values["Page"]?.ToString() == "/Profile" ? "active" : "")"
+                                   asp-page="/Profile">Профиль</a>
+                            </li>
+                            @* Можно добавить приветствие, если нужно *@
+                            @* <span class="navbar-text me-3">
+                                 Привет, @(HttpContext.Session.GetString("UserNickname") ?? User.Identity.Name)!
+                             </span> *@
+                        }
+                        else
+                        {
+                            @* Кнопка Вход для неавторизованного пользователя *@
+                            <li class="nav-item">
+                                <a class="btn login-btn px-4" asp-page="/Login">Вход</a>
+                            </li>
+                        }
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
 
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2025 - Lab5 - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            © @DateTime.Now.Year - Lab5 - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
 

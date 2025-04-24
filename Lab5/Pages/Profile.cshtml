@@ -1,0 +1,216 @@
+﻿@page
+@model Lab5.Pages.ProfileModel
+@{
+    ViewData["Title"] = "Профиль";
+}
+
+@* Добавляем/обновляем стили для страницы профиля *@
+<style>
+    .profile-card {
+        background-color: #fff;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        margin-bottom: 25px;
+    }
+
+    /* Стили для кнопки "Редактировать" и "Сохранить" */
+    .btn.login-btn {
+        background-color: #4B848B;
+        color: white;
+        border: none;
+        border-radius: 0; /* Убираем скругление по умолчанию */
+        padding: 8px 20px;
+        transition: all 0.3s ease;
+        /* Убираем text-transform: none; если он где-то был задан */
+        text-transform: none;
+        font-size: 1rem; /* Стандартный размер шрифта кнопки */
+    }
+
+        .btn.login-btn:hover {
+            background-color: #4F9EA8;
+            color: white;
+        }
+
+    /* Стили для кнопки редактирования, если нужны доп. настройки размера */
+    .edit-profile-btn {
+        font-size: 0.9rem; /* Можно сделать чуть меньше */
+        padding: 6px 15px; /* Уменьшаем паддинги */
+    }
+
+    .card-header-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .profile-avatar img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 15px;
+        border: 3px solid #F8DFAC;
+    }
+
+    .profile-nickname {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .logout-btn {
+        background-color: #C8B386;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        width: 100%;
+        transition: background-color 0.3s ease;
+    }
+
+        .logout-btn:hover {
+            background-color: #b39d70;
+            color: white;
+        }
+
+    /* Стили для картинки календаря */
+    .activity-calendar img {
+        max-width: 100%; /* Чтобы картинка не вылезала за блок */
+        height: auto; /* Сохраняем пропорции */
+        display: block; /* Убираем лишние отступы */
+        margin-top: 15px; /* Отступ от заголовка */
+        border-radius: 5px; /* Небольшое скругление */
+    }
+
+    .info-row, .stat-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #eee;
+    }
+
+        .info-row:last-child, .stat-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+    .info-label, .stat-label {
+        color: #6c757d;
+        font-size: 0.95rem;
+    }
+
+    .info-value, .stat-value {
+        font-weight: 500;
+        text-align: right;
+    }
+
+    .card-title-custom {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 0;
+    }
+
+</style>
+
+<div class="container mt-4">
+
+
+    <div class="row">
+
+        @* Левая колонка *@
+        <div class="col-lg-4 mb-4 mb-lg-0">
+            <div class="profile-card text-center">
+                <div class="profile-avatar">
+                    <img src="~/images/avatar_placeholder.svg" alt="Аватар пользователя">
+                </div>
+                <div class="profile-nickname">
+                    @Model.Nickname
+                </div>
+                <form id="logout-form" method="post" asp-page-handler="Logout">
+                    <button id="logout-button" type="submit" class="btn logout-btn">Выйти</button>
+                </form>
+                <h5 class="mt-4 mb-3">Календарь активности</h5>
+                @* ---> НАЧАЛО: Заменяем плейсхолдер на картинку <--- *@
+                <div class="activity-calendar">
+                    <img src="~/images/calendar.png" alt="Календарь активности пользователя">
+                </div>
+                @* ---> КОНЕЦ <--- *@
+            </div>
+        </div>
+
+        @* Правая колонка *@
+        <div class="col-lg-8">
+            <div class="profile-card">
+                <div class="card-header-flex">
+                    <h4 class="card-title-custom">Основная информация</h4>
+                    @* ---> НАЧАЛО: Меняем классы кнопки Редактировать <--- *@
+                    <button type="button" class="btn login-btn edit-profile-btn" data-bs-toggle="modal" data-bs-target="#editProfileModal">
+                        Редактировать
+                    </button>
+                    @* ---> КОНЕЦ <--- *@
+                </div>
+
+                <div class="info-row"> <span class="info-label">@Html.DisplayNameFor(model => model.Nickname)</span> <span class="info-value">@Model.Nickname</span> </div>
+                <div class="info-row"> <span class="info-label">@Html.DisplayNameFor(model => model.Email)</span> <span class="info-value">@Model.Email</span> </div>
+                <div class="info-row"> <span class="info-label">@Html.DisplayNameFor(model => model.RegistrationDate)</span> <span class="info-value">@Model.RegistrationDate</span> </div>
+            </div>
+
+            <div class="profile-card">
+                <h4 class="card-title-custom mb-3">Статистика</h4>
+                <div class="stat-row"> <span class="stat-label">@Html.DisplayNameFor(model => model.ArticlesRead)</span> <span class="stat-value">@Model.ArticlesRead</span> </div>
+                <div class="stat-row"> <span class="stat-label">@Html.DisplayNameFor(model => model.PodcastsListened)</span> <span class="stat-value">@Model.PodcastsListened</span> </div>
+                <div class="stat-row"> <span class="stat-label">@Html.DisplayNameFor(model => model.TimeOnSite)</span> <span class="stat-value">@Model.TimeOnSite</span> </div>
+                <div class="stat-row"> <span class="stat-label">@Html.DisplayNameFor(model => model.DaysInRow)</span> <span class="stat-value">@Model.DaysInRow</span> </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* ---> НАЧАЛО: Обновляем модальное окно <--- *@
+<div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true"
+     data-bs-backdrop="static" @* <-- Не закрывать по клику на фон *@
+     data-bs-keyboard="false">
+    @* <-- Не закрывать по Esc *@
+    <div class="modal-dialog modal-dialog-centered">
+        @* <-- Центрирование по вертикали *@
+        <div class="modal-content">
+            <form id="profile-edit-form" method="post" asp-page-handler="Edit">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editProfileModalLabel">Редактировать профиль</h5>
+                    @* Крестик для закрытия остается *@
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3" role="alert"></div>
+                    <div class="form-floating mb-3">
+                        <input asp-for="Nickname" class="form-control" placeholder="Псевдоним" />
+                        <label asp-for="Nickname"></label>
+                        <span asp-validation-for="Nickname" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input asp-for="Email" class="form-control" placeholder="Электронный адрес" />
+                        <label asp-for="Email"></label>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    @* Центрируем кнопку Сохранить *@
+                    @* Удаляем кнопку "Отмена" *@
+                    @* ---> НАЧАЛО: Меняем классы кнопки Сохранить <--- *@
+                    <button type="submit" class="btn login-btn">Сохранить изменения</button>
+                    @* ---> КОНЕЦ <--- *@
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@* ---> КОНЕЦ <--- *@
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

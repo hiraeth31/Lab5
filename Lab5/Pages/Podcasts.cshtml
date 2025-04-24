@@ -151,18 +151,22 @@
     <!-- Пример одного элемента подкаста -->
     <div class="podcast-item">
         <div class="podcast-image">
-            @* ВАЖНО: Укажите правильный путь к картинке подкаста *@
             <img src="~/images/imgArticle.jpg" alt="Обложка подкаста Виды Отдыха">
         </div>
         <div class="podcast-content">
             <h5 class="podcast-title">Виды отдыха, которые нужно научиться различать</h5>
 
-            @* Иконка закладки (замените src или используйте иконочный шрифт) *@
-            <img src="~/images/bookmark_off.svg" alt="Добавить в закладки" class="podcast-bookmark" />
+            @* ---> НАЧАЛО: Изменения для иконки закладок <--- *@
+            @* Добавляем класс 'require-auth-action' для JS и data-action для идентификации *@
+            <img src="~/images/bookmark_off.svg" alt="Добавить в закладки"
+                 class="podcast-bookmark require-auth-action" data-action="bookmark" />
+            @* ---> КОНЕЦ <--- *@
 
-            @* Плеер (визуальное представление) *@
             <div class="podcast-player">
-                <button class="play-button" aria-label="Воспроизвести"></button>
+                @* ---> НАЧАЛО: Изменения для кнопки Play <--- *@
+                @* Заменяем символ на img и добавляем класс 'require-auth-action' *@
+                <img src="~/images/play.svg" alt="Воспроизвести" style="width: 24px; height: 24px; vertical-align: middle;" class="play-button require-auth-action" data-action="play"> @* Укажи нужный размер *@
+                @* ---> КОНЕЦ <--- *@
                 <span class="time-display current-time">00:00</span>
                 <div class="progress-bar-container" role="slider" aria-valuenow="0" aria-valuemin="0" aria-valuemax="313" aria-label="Прогресс воспроизведения">
                     <div class="progress-bar"></div>
@@ -172,14 +176,118 @@
         </div>
     </div>
 
-    @* Сюда можно добавлять другие podcast-item *@
+    @* Добавь другие podcast-item аналогично *@
+
+    @* ---> НАЧАЛО: HTML для модального окна авторизации (с изменениями) <--- *@
+    <div class="modal fade" id="authRequiredModal" tabindex="-1"
+         aria-labelledby="authRequiredModalLabel" aria-hidden="true"
+         data-bs-backdrop="static" @* <--- Добавлено *@
+         data-bs-keyboard="false">
+        @* <--- Добавлено *@
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="authRequiredModalLabel">Требуется авторизация</h5>
+                    @* Эта кнопка (крестик) по-прежнему будет работать *@
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    Авторизируйтесь, чтобы разблокировать больше возможностей.
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <a asp-page="/Login" class="btn login-btn px-4">Вход</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    @* ---> КОНЕЦ: HTML для модального окна авторизации <--- *@
 
 </div>
 
-@* 
-    Примечание: Представленный плеер является только визуальной симуляцией. 
-    Для реального воспроизведения аудио потребуется:
-    1. HTML5 тег <audio> (возможно, скрытый).
-    2. JavaScript для управления воспроизведением/паузой, 
-       обновления полосы прогресса и времени при проигрывании.
-*@
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Получаем статус аутентификации из Razor
+            const isAuthenticated = @(User.Identity?.IsAuthenticated.ToString().ToLower() ?? "false");
+
+            // Находим все интерактивные элементы (Play и Bookmark)
+            const interactiveElements = document.querySelectorAll('.require-auth-action');
+
+            // Модальное окно (если нужно)
+            const authModalElement = document.getElementById('authRequiredModal');
+            let authModal = authModalElement ? new bootstrap.Modal(authModalElement) : null;
+            if (!authModal && !isAuthenticated) {
+                 console.error("Элемент модального окна #authRequiredModal не найден, но пользователь не авторизован!");
+            }
+
+            // Определяем пути к иконкам один раз
+            const icons = {
+                play: '/images/play.svg',
+                pause: '/images/pause.svg',
+                bookmark_off: '/images/bookmark_off.svg',
+                bookmark_on: '/images/bookmark_on.svg'
+            };
+
+            // Добавляем обработчик клика на каждый интерактивный элемент
+            interactiveElements.forEach(element => {
+                element.addEventListener('click', function (event) {
+                    const clickedElement = event.currentTarget; // Элемент, по которому кликнули (<img>)
+                    const action = clickedElement.getAttribute('data-action'); // 'play' или 'bookmark'
+
+                    // Если пользователь НЕ аутентифицирован
+                    if (!isAuthenticated) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        if (authModal) {
+                            authModal.show();
+                        }
+                        console.log(`Действие "${action}" требует авторизации.`);
+                    }
+                    // ---> НАЧАЛО: Логика для АВТОРИЗОВАННОГО пользователя <---
+                    else {
+                        // Предотвращаем стандартное поведение, если это необходимо
+                        // event.preventDefault(); // Раскомментируй, если нужно остановить навигацию или др.
+
+                        console.log(`Авторизованный пользователь выполняет действие: "${action}"`);
+
+                        // Логика для кнопки Play/Pause
+                        if (action === 'play') {
+                            // Проверяем текущий src и меняем на противоположный
+                            if (clickedElement.src.endsWith(icons.play)) {
+                                clickedElement.src = icons.pause;
+                                clickedElement.alt = 'Пауза';
+                                // Здесь можно добавить реальную логику запуска плеера
+                                console.log('Подкаст запущен (симуляция)');
+                            } else if (clickedElement.src.endsWith(icons.pause)) {
+                                clickedElement.src = icons.play;
+                                clickedElement.alt = 'Воспроизвести';
+                                // Здесь можно добавить реальную логику остановки плеера
+                                console.log('Подкаст остановлен (симуляция)');
+                            } else {
+                                console.warn('Не удалось определить состояние кнопки Play/Pause по src:', clickedElement.src);
+                            }
+                        }
+                        // Логика для кнопки Bookmark On/Off
+                        else if (action === 'bookmark') {
+                             // Проверяем текущий src и меняем на противоположный
+                            if (clickedElement.src.endsWith(icons.bookmark_off)) {
+                                clickedElement.src = icons.bookmark_on;
+                                clickedElement.alt = 'Убрать из закладок';
+                                // Здесь можно добавить реальную логику добавления в закладки (например, AJAX-запрос на сервер)
+                                console.log('Добавлено в закладки (симуляция)');
+                            } else if (clickedElement.src.endsWith(icons.bookmark_on)) {
+                                clickedElement.src = icons.bookmark_off;
+                                clickedElement.alt = 'Добавить в закладки';
+                                // Здесь можно добавить реальную логику удаления из закладок (например, AJAX-запрос на сервер)
+                                console.log('Удалено из закладок (симуляция)');
+                            } else {
+                                console.warn('Не удалось определить состояние кнопки Bookmark по src:', clickedElement.src);
+                            }
+                        }
+                    }
+                    // ---> КОНЕЦ: Логика для АВТОРИЗОВАННОГО пользователя <---
+                });
+            });
+        });
+    </script>
+}

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "twm/amXm4y65QTqN4VB8pdaQ0GE0CSInBQ3sMlWjGns=",
+  "Hash": "vO4osBql8v0qrSy2T2/VuUImarbrhv7JPgmsKZhxfMw=",
   "Source": "Lab5",
   "BasePath": "_content/Lab5",
   "Mode": "Default",
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "r9hok5qv7x",
-      "Integrity": "kWoMQ1s12eeEOs5dcw9WGFBBlqlAYp+IJFP+6lsVml8=",
+      "Fingerprint": "eh790u0513",
+      "Integrity": "IgaqU3IDm5xMg3/ex064+Xezl5Q2lsXtUXUoe8fp3qM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -99,6 +99,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\avatar_placeholder.svg",
+      "SourceId": "Lab5",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\",
+      "BasePath": "_content/Lab5",
+      "RelativePath": "Images/avatar_placeholder#[.{fingerprint}]?.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "qpw7x6pg7y",
+      "Integrity": "XspuQ2TW7pwkL11IiZslArw4fe3V2rPOzR4ps4oFzw8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\avatar_placeholder.svg"
     },
     {
       "Identity": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\bookmark_off.svg",
@@ -143,6 +164,27 @@
       "OriginalItemSpec": "wwwroot\\Images\\bookmark_on.svg"
     },
     {
+      "Identity": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\calendar.png",
+      "SourceId": "Lab5",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\",
+      "BasePath": "_content/Lab5",
+      "RelativePath": "Images/calendar#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mz3qe8g5ye",
+      "Integrity": "ssRQRGJojj4b5KbafIlaueKV4nrfs79Hrtp9Ac+/G5M=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\calendar.png"
+    },
+    {
       "Identity": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\heart.svg",
       "SourceId": "Lab5",
       "SourceType": "Discovered",
@@ -183,6 +225,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\imgArticle.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\pause.svg",
+      "SourceId": "Lab5",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\",
+      "BasePath": "_content/Lab5",
+      "RelativePath": "Images/pause#[.{fingerprint}]?.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "w40h6po7hw",
+      "Integrity": "ENtBT13gbGzadwWFBbAI4nj+z1dTI2a56Wc/FkxKuEM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\pause.svg"
+    },
+    {
+      "Identity": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\play.svg",
+      "SourceId": "Lab5",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\",
+      "BasePath": "_content/Lab5",
+      "RelativePath": "Images/play#[.{fingerprint}]?.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "p867zipr4c",
+      "Integrity": "pwkt03xfh1+mYEyppb3OnsfiQ25inONtGsLQeN+WSTE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\play.svg"
     },
     {
       "Identity": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\search.svg",
@@ -1436,7 +1520,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2573"
+          "Value": "2557"
         },
         {
           "Name": "Content-Type",
@@ -1444,11 +1528,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"kWoMQ1s12eeEOs5dcw9WGFBBlqlAYp+IJFP+6lsVml8=\""
+          "Value": "\"IgaqU3IDm5xMg3/ex064+Xezl5Q2lsXtUXUoe8fp3qM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 22 Apr 2025 10:06:25 GMT"
+          "Value": "Thu, 24 Apr 2025 12:14:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1458,12 +1542,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-kWoMQ1s12eeEOs5dcw9WGFBBlqlAYp+IJFP+6lsVml8="
+          "Value": "sha256-IgaqU3IDm5xMg3/ex064+Xezl5Q2lsXtUXUoe8fp3qM="
         }
       ]
     },
     {
-      "Route": "css/site.r9hok5qv7x.css",
+      "Route": "css/site.eh790u0513.css",
       "AssetFile": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1473,7 +1557,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2573"
+          "Value": "2557"
         },
         {
           "Name": "Content-Type",
@@ -1481,11 +1565,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"kWoMQ1s12eeEOs5dcw9WGFBBlqlAYp+IJFP+6lsVml8=\""
+          "Value": "\"IgaqU3IDm5xMg3/ex064+Xezl5Q2lsXtUXUoe8fp3qM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 22 Apr 2025 10:06:25 GMT"
+          "Value": "Thu, 24 Apr 2025 12:14:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1495,7 +1579,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "r9hok5qv7x"
+          "Value": "eh790u0513"
         },
         {
           "Name": "label",
@@ -1503,7 +1587,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-kWoMQ1s12eeEOs5dcw9WGFBBlqlAYp+IJFP+6lsVml8="
+          "Value": "sha256-IgaqU3IDm5xMg3/ex064+Xezl5Q2lsXtUXUoe8fp3qM="
         }
       ]
     },
@@ -1586,6 +1670,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+        }
+      ]
+    },
+    {
+      "Route": "Images/avatar_placeholder.qpw7x6pg7y.svg",
+      "AssetFile": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\avatar_placeholder.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1250"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XspuQ2TW7pwkL11IiZslArw4fe3V2rPOzR4ps4oFzw8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 11:58:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qpw7x6pg7y"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/avatar_placeholder.svg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-XspuQ2TW7pwkL11IiZslArw4fe3V2rPOzR4ps4oFzw8="
+        }
+      ]
+    },
+    {
+      "Route": "Images/avatar_placeholder.svg",
+      "AssetFile": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\avatar_placeholder.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1250"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XspuQ2TW7pwkL11IiZslArw4fe3V2rPOzR4ps4oFzw8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 11:58:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-XspuQ2TW7pwkL11IiZslArw4fe3V2rPOzR4ps4oFzw8="
         }
       ]
     },
@@ -1754,6 +1920,88 @@
       ]
     },
     {
+      "Route": "Images/calendar.mz3qe8g5ye.png",
+      "AssetFile": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\calendar.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10125"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ssRQRGJojj4b5KbafIlaueKV4nrfs79Hrtp9Ac+/G5M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 12:07:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mz3qe8g5ye"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/calendar.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ssRQRGJojj4b5KbafIlaueKV4nrfs79Hrtp9Ac+/G5M="
+        }
+      ]
+    },
+    {
+      "Route": "Images/calendar.png",
+      "AssetFile": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\calendar.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10125"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ssRQRGJojj4b5KbafIlaueKV4nrfs79Hrtp9Ac+/G5M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 12:07:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ssRQRGJojj4b5KbafIlaueKV4nrfs79Hrtp9Ac+/G5M="
+        }
+      ]
+    },
+    {
       "Route": "Images/heart.50ga31ccw4.svg",
       "AssetFile": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\heart.svg",
       "Selectors": [],
@@ -1914,6 +2162,170 @@
         {
           "Name": "integrity",
           "Value": "sha256-4i6+sFz4xin10LccbqZsdYCp+2GkuE5gC0jKmLlBuTA="
+        }
+      ]
+    },
+    {
+      "Route": "Images/pause.svg",
+      "AssetFile": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\pause.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "393"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ENtBT13gbGzadwWFBbAI4nj+z1dTI2a56Wc/FkxKuEM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 11:39:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ENtBT13gbGzadwWFBbAI4nj+z1dTI2a56Wc/FkxKuEM="
+        }
+      ]
+    },
+    {
+      "Route": "Images/pause.w40h6po7hw.svg",
+      "AssetFile": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\pause.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "393"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ENtBT13gbGzadwWFBbAI4nj+z1dTI2a56Wc/FkxKuEM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 11:39:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "w40h6po7hw"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/pause.svg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ENtBT13gbGzadwWFBbAI4nj+z1dTI2a56Wc/FkxKuEM="
+        }
+      ]
+    },
+    {
+      "Route": "Images/play.p867zipr4c.svg",
+      "AssetFile": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\play.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "327"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pwkt03xfh1+mYEyppb3OnsfiQ25inONtGsLQeN+WSTE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 11:05:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "p867zipr4c"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/play.svg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-pwkt03xfh1+mYEyppb3OnsfiQ25inONtGsLQeN+WSTE="
+        }
+      ]
+    },
+    {
+      "Route": "Images/play.svg",
+      "AssetFile": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\play.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "327"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pwkt03xfh1+mYEyppb3OnsfiQ25inONtGsLQeN+WSTE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 11:05:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-pwkt03xfh1+mYEyppb3OnsfiQ25inONtGsLQeN+WSTE="
         }
       ]
     },

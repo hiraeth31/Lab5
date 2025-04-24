@@ -1,0 +1,269 @@
+﻿@page
+@model Lab5.Pages.BookmarksModel
+@{
+    ViewData["Title"] = "Закладки";
+}
+
+@* Стили для страницы закладок *@
+<style>
+    .bookmarks-container {
+        margin-top: 30px;
+    }
+
+    /* Стилизация вкладок */
+    .nav-tabs {
+        border-bottom: none;
+        background-color: #F8DFAC;
+        padding: 0;
+        display: flex; /* Убедимся, что это flex-контейнер */
+        width: 100%; /* Растягиваем на всю ширину родителя */
+    }
+
+        .nav-tabs .nav-item {
+            margin-bottom: 0;
+            flex-grow: 1; /* Заставляем элемент расти */
+            flex-basis: 0; /* Базовая ширина 0, чтобы flex-grow работал равномерно */
+            text-align: center;
+        }
+
+        .nav-tabs .nav-link {
+            border: none;
+            border-radius: 0;
+            background-color: #F8DFAC;
+            color: #333;
+            padding: 15px 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            position: relative;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            display: block; /* Делаем ссылку блочной для корректной ширины */
+            width: 100%; /* Занимает всю ширину родительского .nav-item */
+        }
+
+            .nav-tabs .nav-link:hover {
+                background-color: #eacda0;
+                color: #333;
+            }
+
+            .nav-tabs .nav-link.active {
+                background-color: #e6c58f;
+                color: #333;
+                font-weight: 600;
+            }
+
+                .nav-tabs .nav-link.active::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 25%;
+                    width: 50%;
+                    height: 3px;
+                    background-color: #6a994e; /* Уточни цвет, если нужно */
+                }
+
+    .tab-content {
+        padding-top: 30px;
+    }
+
+    /* Общие стили для элемента закладки */
+    .bookmark-item {
+        display: flex;
+        background-color: #fff;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+        border-radius: 5px;
+        gap: 20px; /* Пространство между картинкой и контентом */
+        align-items: center; /* Выравнивание по центру */
+    }
+
+    .bookmark-image img {
+        max-width: 180px; /* Ширина картинки */
+        height: auto;
+        display: block;
+        border-radius: 4px;
+    }
+
+    .bookmark-content {
+        flex-grow: 1;
+        position: relative; /* Для позиционирования иконки и даты/плеера */
+        padding-right: 35px; /* Место справа для иконки */
+        min-height: 90px; /* Минимальная высота, чтобы вместить дату/плеер */
+    }
+
+    .bookmark-title {
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-bottom: 10px; /* Отступ под заголовком */
+        /* Убираем нижний отступ, если есть плеер */
+        /* margin-bottom: 40px; /* Добавляем отступ снизу, если есть дата/плеер */
+    }
+
+    .bookmark-icon {
+        position: absolute;
+        top: 0px; /* Отступ иконки сверху */
+        right: 0px; /* Отступ иконки справа */
+        width: 20px; /* Размер иконки закладки */
+        height: auto;
+    }
+
+    /* Стили для даты статьи */
+    .bookmark-date {
+        position: absolute;
+        bottom: 0px; /* Отступ даты снизу */
+        right: 0px; /* Отступ даты справа */
+        font-size: 0.85rem;
+        color: #6c757d;
+    }
+
+    /* Стили для плеера подкаста (упрощенные) */
+    .podcast-player-simple {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: calc(100% - 35px); /* Занимает ширину минус место под иконку */
+        padding-right: 5px; /* Небольшой отступ справа */
+    }
+
+        .podcast-player-simple .play-icon img {
+            width: 20px; /* Размер иконки play */
+            height: 20px;
+            cursor: pointer;
+            vertical-align: middle;
+        }
+
+        .podcast-player-simple .progress-bar-placeholder {
+            flex-grow: 1;
+            height: 4px;
+            background-color: #e9ecef;
+            border-radius: 2px;
+        }
+
+        .podcast-player-simple .time-display {
+            font-size: 0.8rem;
+            color: #6c757d;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .podcast-player-simple .current-time {
+            margin-right: 5px;
+        }
+
+</style>
+
+<div class="container bookmarks-container">
+
+    @* Навигация по вкладкам *@
+    <ul class="nav nav-tabs" id="bookmarksTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="articles-tab" data-bs-toggle="tab" data-bs-target="#articles-pane" type="button" role="tab" aria-controls="articles-pane" aria-selected="true">
+                Статьи
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="podcasts-tab" data-bs-toggle="tab" data-bs-target="#podcasts-pane" type="button" role="tab" aria-controls="podcasts-pane" aria-selected="false">
+                Подкасты
+            </button>
+        </li>
+    </ul>
+
+    @* Содержимое вкладок *@
+    <div class="tab-content" id="bookmarksTabContent">
+
+        @* Панель для Статей *@
+        <div class="tab-pane fade show active" id="articles-pane" role="tabpanel" aria-labelledby="articles-tab" tabindex="0">
+
+            @* Пример элемента статьи в закладках *@
+            <div class="bookmark-item article-item">
+                <div class="bookmark-image">
+                    @* Укажите путь к реальной картинке статьи *@
+                    <img src="~/images/imgArticle.jpg" alt="Обложка статьи">
+                </div>
+                <div class="bookmark-content">
+                    <h5 class="bookmark-title">Что такое синдром самозванца: связан ли он с личностью?</h5>
+                    @* Иконка активной закладки *@
+                    <img src="~/images/bookmark_on.svg" alt="В закладках" class="bookmark-icon" />
+                    <span class="bookmark-date">01.03.2025</span>
+                </div>
+            </div>
+
+            @* Здесь можно добавить другие элементы статей в цикле *@
+
+        </div>
+
+        @* Панель для Подкастов *@
+        <div class="tab-pane fade" id="podcasts-pane" role="tabpanel" aria-labelledby="podcasts-tab" tabindex="0">
+
+            @* Пример элемента подкаста в закладках *@
+            @* Пример элемента подкаста в закладках *@
+            <div class="bookmark-item podcast-item">
+                <div class="bookmark-image">
+                    <img src="~/images/imgArticle.jpg" alt="Обложка подкаста">
+                </div>
+                <div class="bookmark-content">
+                    <h5 class="bookmark-title">Виды отдыха, которые нужно научиться различать</h5>
+                    <img src="~/images/bookmark_on.svg" alt="В закладках" class="bookmark-icon" />
+
+                    <div class="podcast-player-simple">
+                        <span class="play-icon">
+                            @* ---> НАЧАЛО: Добавляем класс bookmark-play-button <--- *@
+                            <img src="~/images/play.svg" alt="Воспроизвести" class="bookmark-play-button">
+                            @* ---> КОНЕЦ <--- *@
+                        </span>
+                        <span class="time-display current-time">00:00</span>
+                        <div class="progress-bar-placeholder"></div>
+                        <span class="time-display total-duration">5:13 мин</span>
+                    </div>
+                </div>
+            </div>
+
+            @* Здесь можно добавить другие элементы подкастов в цикле *@
+
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Определяем пути к иконкам Play/Pause
+            const icons = {
+                play: '/images/play.svg', // Убедись, что путь правильный
+                pause: '/images/pause.svg' // Убедись, что есть иконка паузы
+            };
+
+            // Находим все кнопки Play/Pause на этой странице
+            const playPauseButtons = document.querySelectorAll('.bookmark-play-button');
+
+            // Добавляем обработчик клика на каждую кнопку
+            playPauseButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    const clickedButton = event.currentTarget; // Нажатая картинка (img)
+
+                    // Проверяем текущую иконку и меняем ее
+                    if (clickedButton.src.endsWith(icons.play)) {
+                        clickedButton.src = icons.pause;
+                        clickedButton.alt = 'Пауза';
+                        // Здесь можно добавить логику ЗАПУСКА воспроизведения
+                        console.log('Подкаст (в закладках) запущен - симуляция');
+                    } else if (clickedButton.src.endsWith(icons.pause)) {
+                        clickedButton.src = icons.play;
+                        clickedButton.alt = 'Воспроизвести';
+                         // Здесь можно добавить логику ОСТАНОВКИ воспроизведения
+                        console.log('Подкаст (в закладках) остановлен - симуляция');
+                    } else {
+                        console.warn('Не удалось определить состояние кнопки Play/Pause по src:', clickedButton.src);
+                    }
+                });
+            });
+        });
+    </script>
+}
+
+@* Bootstrap JS необходим для работы вкладок (обычно подключается в _Layout.cshtml) *@
+@* Если в _Layout.cshtml нет <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>, добавьте его сюда или туда *@

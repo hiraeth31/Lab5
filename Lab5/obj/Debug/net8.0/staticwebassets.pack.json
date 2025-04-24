@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Lab5.533mcl723r.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\avatar_placeholder.svg",
+      "PackagePath": "staticwebassets\\Images\\avatar_placeholder.svg"
+    },
+    {
       "Id": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\bookmark_off.svg",
       "PackagePath": "staticwebassets\\Images\\bookmark_off.svg"
     },
@@ -13,12 +17,24 @@
       "PackagePath": "staticwebassets\\Images\\bookmark_on.svg"
     },
     {
+      "Id": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\calendar.png",
+      "PackagePath": "staticwebassets\\Images\\calendar.png"
+    },
+    {
       "Id": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\heart.svg",
       "PackagePath": "staticwebassets\\Images\\heart.svg"
     },
     {
       "Id": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\imgArticle.jpg",
       "PackagePath": "staticwebassets\\Images\\imgArticle.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\pause.svg",
+      "PackagePath": "staticwebassets\\Images\\pause.svg"
+    },
+    {
+      "Id": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\play.svg",
+      "PackagePath": "staticwebassets\\Images\\play.svg"
     },
     {
       "Id": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\Images\\search.svg",

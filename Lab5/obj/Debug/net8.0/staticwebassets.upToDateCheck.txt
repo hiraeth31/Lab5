@@ -1,9 +1,13 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\Images\avatar_placeholder.svg
 wwwroot\Images\bookmark_off.svg
 wwwroot\Images\bookmark_on.svg
+wwwroot\Images\calendar.png
 wwwroot\Images\heart.svg
 wwwroot\Images\imgArticle.jpg
+wwwroot\Images\pause.svg
+wwwroot\Images\play.svg
 wwwroot\Images\search.svg
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
