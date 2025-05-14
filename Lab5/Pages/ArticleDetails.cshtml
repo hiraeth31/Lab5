@@ -1,0 +1,185 @@
+﻿@page "{id:int?}"
+@model Lab5.Pages.ArticleDetailsModel
+@{
+    // ViewData["Title"] устанавливается в PageModel
+}
+
+@if (Model.CurrentArticle != null)
+{
+    <style>
+        .article-detail-container {
+            max-width: 800px; /* Ограничиваем ширину контента статьи */
+            margin: 20px auto; /* Центрируем */
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .back-button-container {
+            margin-bottom: 25px;
+        }
+
+        .back-button {
+            display: inline-flex; /* Для выравнивания иконки и текста */
+            align-items: center;
+            justify-content: center;
+            width: 40px; /* Фиксированная ширина кнопки */
+            height: 40px; /* Фиксированная высота кнопки */
+            border: 1px solid #ccc;
+            background-color: #f8f9fa;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem; /* Размер стрелки */
+            transition: background-color 0.2s ease;
+        }
+
+            .back-button:hover {
+                background-color: #e9ecef;
+                color: #333;
+            }
+
+        .article-header-image {
+            width: 100%;
+            max-height: 400px; /* Ограничение по высоте для больших картинок */
+            object-fit: cover; /* Масштабирование с сохранением пропорций и обрезкой */
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #6c757d; /* text-muted */
+            font-size: 0.9rem;
+        }
+
+            .article-meta .publish-date {
+                /* Стили для даты, если нужны */
+            }
+
+            .article-meta .bookmark-icon img {
+                width: 18px; /* Размер иконки закладки */
+                height: auto;
+                cursor: pointer; /* Для будущей интерактивности */
+            }
+
+        .article-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        .article-content p {
+            line-height: 1.7;
+            margin-bottom: 1.2em;
+            font-size: 1rem;
+            text-align: justify; 
+        }
+
+        .article-content h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 1.8em;
+            margin-bottom: 0.8em;
+        }
+        /* Стили для других тегов, если они будут в контенте (ul, ol, blockquote, etc.) */
+        /* Добавь стили для strong, если нужно выделить полужирные подзаголовки */
+        .article-content strong {
+            font-weight: 600; /* Или bold, если предпочитаешь */
+            display: block; /* Чтобы <br> после него работал как новый абзац */
+            margin-top: 0.5em; /* Небольшой отступ сверху для выделенных строк */
+        }
+
+    </style>
+
+    <div class="article-detail-container">
+        <div class="back-button-container">
+            @* Кнопка "Назад" - просто возвращает на предыдущую страницу в истории браузера *@
+            <a href="javascript:history.back()" class="back-button" title="Назад">
+                ← @* HTML-код для стрелки влево ← или ← *@
+            </a>
+        </div>
+
+        @if (!string.IsNullOrEmpty(Model.CurrentArticle.ImagePath))
+        {
+            <img src="@Model.CurrentArticle.ImagePath" alt="Обложка статьи: @Model.CurrentArticle.Title" class="article-header-image">
+        }
+
+        <div class="article-meta">
+            <span class="publish-date">@Model.CurrentArticle.PublishDate.ToString("dd.MM.yyyy")</span>
+            <span class="bookmark-icon">
+                @* Иконка закладки - пока неактивная, без логики *@
+                <img src="~/images/bookmark_off.svg" alt="Добавить в закладки" class="require-auth-action" data-action="bookmarkArticle">
+            </span>
+        </div>
+
+        <h1 class="article-title">@Model.CurrentArticle.Title</h1>
+
+        <div class="article-content">
+            @Html.Raw(Model.CurrentArticle.Content) @* Используем Html.Raw для рендеринга HTML из строки *@
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">Статья не найдена.</div>
+}
+
+
+@* Добавим скрипт для обработки модального окна, если пользователь не авторизован и кликает на закладку *@
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const isAuthenticated = @(User.Identity?.IsAuthenticated.ToString().ToLower() ?? "false");
+            const authModalElement = document.getElementById('authRequiredModal'); // Ищем модалку из _Layout или другого места
+            let authModal = authModalElement ? new bootstrap.Modal(authModalElement) : null;
+
+            const requireAuthElements = document.querySelectorAll('.require-auth-action');
+            requireAuthElements.forEach(element => {
+                element.addEventListener('click', function (event) {
+                    if (!isAuthenticated) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        if (authModal) {
+                            authModal.show();
+                        } else {
+                             // Если модалки нет на странице (например, забыли добавить в _Layout), можно показать alert
+                             alert("Для этого действия требуется авторизация.");
+                             console.error("Элемент модального окна #authRequiredModal не найден!");
+                        }
+                        const action = event.currentTarget.getAttribute('data-action');
+                        console.log(`Действие "${action}" требует авторизации.`);
+                    } else {
+                        // Логика для авторизованного пользователя (если клик по закладке)
+                        const action = event.currentTarget.getAttribute('data-action');
+                        if (action === 'bookmarkArticle') {
+                            // Переключаем иконку закладки
+                            const imgElement = event.currentTarget; // Это и есть <img>
+                            if (imgElement.src.endsWith('bookmark_off.svg')) {
+                                imgElement.src = '/images/bookmark_on.svg';
+                                imgElement.alt = 'Убрать из закладок';
+                            } else {
+                                imgElement.src = '/images/bookmark_off.svg';
+                                imgElement.alt = 'Добавить в закладки';
+                            }
+                            console.log('Состояние закладки изменено (симуляция)');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+    @* Подключи модальное окно, если оно еще не глобальное (например, в _Layout.cshtml) *@
+    @* Если оно уже есть в _Layout.cshtml, этот блок не нужен *@
+    @if (ViewContext.HttpContext.Items["AuthModalRendered"] == null)
+    {
+        <partial name="_AuthRequiredModalPartial" />
+        ViewContext.HttpContext.Items["AuthModalRendered"] = true;
+    }
+}

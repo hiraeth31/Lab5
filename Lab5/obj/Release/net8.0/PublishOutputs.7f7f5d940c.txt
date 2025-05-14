@@ -1,0 +1,7 @@
+C:\Users\Nosferatu\source\repos\Lab5\Lab5\obj\Release\net8.0\PubTmp\Out\Lab5.exe
+C:\Users\Nosferatu\source\repos\Lab5\Lab5\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
+C:\Users\Nosferatu\source\repos\Lab5\Lab5\obj\Release\net8.0\PubTmp\Out\appsettings.json
+C:\Users\Nosferatu\source\repos\Lab5\Lab5\obj\Release\net8.0\PubTmp\Out\Lab5.dll
+C:\Users\Nosferatu\source\repos\Lab5\Lab5\obj\Release\net8.0\PubTmp\Out\Lab5.deps.json
+C:\Users\Nosferatu\source\repos\Lab5\Lab5\obj\Release\net8.0\PubTmp\Out\Lab5.runtimeconfig.json
+C:\Users\Nosferatu\source\repos\Lab5\Lab5\obj\Release\net8.0\PubTmp\Out\Lab5.pdb

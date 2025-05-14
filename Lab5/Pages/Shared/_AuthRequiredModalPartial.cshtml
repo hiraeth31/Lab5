@@ -1,0 +1,19 @@
+﻿@* Pages/Shared/_AuthRequiredModalPartial.cshtml *@
+<div class="modal fade" id="authRequiredModal" tabindex="-1"
+     aria-labelledby="authRequiredModalLabel" aria-hidden="true"
+     data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="authRequiredModalLabel">Требуется авторизация</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                Авторизируйтесь через Google, чтобы разблокировать больше возможностей.
+            </div>
+            <div class="modal-footer justify-content-center">
+                <a asp-page="/Login" class="btn login-btn px-4">Вход</a>
+            </div>
+        </div>
+    </div>
+</div>

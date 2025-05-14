@@ -26,10 +26,10 @@ C:\Users\Nosferatu\source\repos\Lab5\Lab5\obj\Debug\net8.0\staticwebassets\msbui
 C:\Users\Nosferatu\source\repos\Lab5\Lab5\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Lab5.props
 C:\Users\Nosferatu\source\repos\Lab5\Lab5\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Lab5.props
 C:\Users\Nosferatu\source\repos\Lab5\Lab5\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\Nosferatu\source\repos\Lab5\Lab5\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Nosferatu\source\repos\Lab5\Lab5\obj\Debug\net8.0\Lab5.dll
 C:\Users\Nosferatu\source\repos\Lab5\Lab5\obj\Debug\net8.0\refint\Lab5.dll
 C:\Users\Nosferatu\source\repos\Lab5\Lab5\obj\Debug\net8.0\Lab5.pdb
 C:\Users\Nosferatu\source\repos\Lab5\Lab5\obj\Debug\net8.0\Lab5.genruntimeconfig.cache
 C:\Users\Nosferatu\source\repos\Lab5\Lab5\obj\Debug\net8.0\ref\Lab5.dll
 C:\Users\Nosferatu\source\repos\Lab5\Lab5\obj\Debug\net8.0\Lab5.sourcelink.json
+C:\Users\Nosferatu\source\repos\Lab5\Lab5\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

@@ -1,0 +1,237 @@
+﻿@page
+@model Lab5.Pages.SavedArticlesModel
+@{
+    ViewData["Title"] = "Сохраненные статьи";
+}
+
+@* Скопируй сюда стили, которые были в Bookmarks.cshtml для .bookmark-item, .bookmark-image и т.д.
+   Или вынеси их в общий site.css, если они используются на нескольких страницах. *@
+<style>
+    .bookmarks-container {
+        margin-top: 30px;
+    }
+
+    /* Стилизация вкладок */
+    .nav-tabs {
+        border-bottom: none;
+        background-color: #F8DFAC;
+        padding: 0;
+        display: flex; /* Убедимся, что это flex-контейнер */
+        width: 100%; /* Растягиваем на всю ширину родителя */
+    }
+
+        .nav-tabs .nav-item {
+            margin-bottom: 0;
+            flex-grow: 1; /* Заставляем элемент расти */
+            flex-basis: 0; /* Базовая ширина 0, чтобы flex-grow работал равномерно */
+            text-align: center;
+        }
+
+        .nav-tabs .nav-link {
+            border: none;
+            border-radius: 0;
+            background-color: #F8DFAC;
+            color: #333;
+            padding: 15px 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            position: relative;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            display: block; /* Делаем ссылку блочной для корректной ширины */
+            width: 100%; /* Занимает всю ширину родительского .nav-item */
+        }
+
+            .nav-tabs .nav-link:hover {
+                background-color: #eacda0;
+                color: #333;
+            }
+
+            .nav-tabs .nav-link.active {
+                background-color: #e6c58f;
+                color: #333;
+                font-weight: 600;
+            }
+
+                .nav-tabs .nav-link.active::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 25%;
+                    width: 50%;
+                    height: 3px;
+                    background-color: #6a994e; /* Уточни цвет, если нужно */
+                }
+
+    .tab-content {
+        padding-top: 30px;
+    }
+
+    /* Общие стили для элемента закладки */
+    .bookmark-item {
+        display: flex;
+        background-color: #fff;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+        border-radius: 5px;
+        gap: 20px; /* Пространство между картинкой и контентом */
+        align-items: center; /* Выравнивание по центру */
+    }
+
+    .bookmark-image img {
+        max-width: 210px; /* Ширина картинки */
+        height: auto;
+        display: block;
+        border-radius: 4px;
+    }
+
+    .bookmark-content {
+        flex-grow: 1;
+        position: relative; /* Для позиционирования иконки и даты/плеера */
+        padding-right: 35px; /* Место справа для иконки */
+        min-height: 90px; /* Минимальная высота, чтобы вместить дату/плеер */
+    }
+
+    .bookmark-title {
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-bottom: 10px; /* Отступ под заголовком */
+        /* Убираем нижний отступ, если есть плеер */
+        /* margin-bottom: 40px; /* Добавляем отступ снизу, если есть дата/плеер */
+    }
+
+    .bookmark-icon {
+        position: absolute;
+        top: 0px; /* Отступ иконки сверху */
+        right: 0px; /* Отступ иконки справа */
+        width: 20px; /* Размер иконки закладки */
+        height: auto;
+    }
+
+    /* Стили для даты статьи */
+    .bookmark-date {
+        position: absolute;
+        bottom: 0px; /* Отступ даты снизу */
+        right: 0px; /* Отступ даты справа */
+        font-size: 0.85rem;
+        color: #6c757d;
+    }
+
+    /* Стили для плеера подкаста (упрощенные) */
+    .podcast-player-simple {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: calc(100% - 35px); /* Занимает ширину минус место под иконку */
+        padding-right: 5px; /* Небольшой отступ справа */
+    }
+
+        .podcast-player-simple .play-icon img {
+            width: 20px; /* Размер иконки play */
+            height: 20px;
+            cursor: pointer;
+            vertical-align: middle;
+        }
+
+        .podcast-player-simple .progress-bar-placeholder {
+            flex-grow: 1;
+            height: 4px;
+            background-color: #e9ecef;
+            border-radius: 2px;
+        }
+
+        .podcast-player-simple .time-display {
+            font-size: 0.8rem;
+            color: #6c757d;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .podcast-player-simple .current-time {
+            margin-right: 5px;
+        }
+
+    /* Стили для кнопки "Назад" */
+    .back-to-profile-container {
+        margin-bottom: 25px;
+    }
+
+    .back-to-profile-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px; /* Расстояние между иконкой (если будет) и текстом */
+        padding: 8px 15px;
+        /* Можно использовать стили login-btn или другие */
+        background-color: #6c757d; /* Примерный цвет (secondary) */
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 0.9rem;
+    }
+
+        .back-to-profile-btn:hover {
+            background-color: #5a6268;
+            color: white;
+        }
+
+        .back-to-profile-btn .arrow {
+            font-size: 1.2em; /* Делаем стрелку чуть больше текста */
+        }
+
+</style>
+
+<div class="container bookmarks-container">
+
+    @* ---> НАЧАЛО: Кнопка "Назад в профиль" <--- *@
+    <div class="back-to-profile-container">
+        <a asp-page="/Profile" class="btn back-to-profile-btn">
+            <span class="arrow">←</span> Назад
+        </a>
+    </div>
+    @* ---> КОНЕЦ <--- *@
+
+    <h1 class="page-title">@ViewData["Title"]</h1>
+
+    @* Пример элемента статьи в закладках (возьми из твоего Bookmarks.cshtml, #articles-pane) *@
+    <div class="bookmark-item article-item">
+        <div class="bookmark-image">
+            <a asp-page="/ArticleDetails" asp-route-id="2" class="text-decoration-none">
+                <img src="~/images/article_2.png" alt="Обложка статьи"> @* Замени на актуальный путь *@
+            </a>
+        </div>
+        <div class="bookmark-content">
+            <h5 class="bookmark-title">
+                <a asp-page="/ArticleDetails" asp-route-id="2" class="text-decoration-none text-dark">
+                    Что такое синдром самозванца: связан ли он с личностью? @* Пример *@
+                </a>
+            </h5>
+            <img src="~/images/bookmark_on.svg" alt="В закладках" class="bookmark-icon" />
+            <span class="bookmark-date">01.03.2025</span> @* Пример *@
+        </div>
+    </div>
+
+    @* Добавь сюда еще один пример или сообщение, если статей нет *@
+    <div class="bookmark-item article-item">
+        <div class="bookmark-image">
+            <a asp-page="/ArticleDetails" asp-route-id="1" class="text-decoration-none">
+                <img src="~/images/article_1.png" alt="Обложка статьи"> @* Замени на актуальный путь *@
+            </a>
+        </div>
+        <div class="bookmark-content">
+            <h5 class="bookmark-title">
+                <a asp-page="/ArticleDetails" asp-route-id="1" class="text-decoration-none text-dark">
+                    Вам трудно вести сложные разговоры? @* Пример *@
+                </a>
+            </h5>
+            <img src="~/images/bookmark_on.svg" alt="В закладках" class="bookmark-icon" />
+            <span class="bookmark-date">02.03.2025</span> @* Пример *@
+        </div>
+    </div>
+
+    @* Если список пуст:
+    <p>У вас пока нет сохраненных статей.</p>
+    *@
+</div>

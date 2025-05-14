@@ -1,0 +1,127 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.mainImg {
+    max-width: 50px; /* Ограничиваем ширину картинки */
+    height: auto; /* Позволяем высоте подстраиваться */
+    display: block; /* Убираем лишние отступы под картинкой */
+    border-radius: 4px; /* Слегка скругляем углы картинки */
+}
+
+.mainColor {
+    background-color: #F8DFAC;
+}
+
+/* Основные стили для навбара */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    background-color: #F8DFAC !important;
+}
+
+/* Стили для ссылок */
+.nav-link {
+    font-weight: 500;
+    color: #333 !important;
+    position: relative;
+    padding-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+    /* Эффект при наведении */
+    .nav-link:hover {
+        color: #333 !important;
+        background-color: #B5B682 !important;
+        border-radius: 4px;
+    }
+
+    /* Подчеркивание для активной вкладки */
+    .nav-link.active::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 15px;
+        right: 15px;
+        height: 2px;
+        background-color: #B5B682;
+    }
+
+/* Стили для кнопки "Вход" */
+.btn.login-btn {
+    background-color: #4B848B;
+    color: white;
+    border: none;
+    border-radius: 0;
+    padding: 8px 20px;
+    transition: all 0.3s ease;
+}
+
+.btn.login-btn:hover {
+    background-color: #4F9EA8;
+    color: white;
+}
+
+
+
+
+
+
+/* Стили для герой-секции */
+.hero-section {
+    padding: 100px 0;
+    color: #333;
+}
+
+/* Стили для заголовка */
+.display-4 {
+    font-size: 3rem;
+    line-height: 1.2;
+    display: inline-block; /* Чтобы nowrap работал правильно */
+}
+
+/* Стили для подзаголовка */
+.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Стили для кнопки "Начать" */
+.btn.cta-btn {
+    background-color: #4B848B;
+    color: white;
+    border: none;
+    border-radius: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    min-width: 180px;
+}
+
+    .btn.cta-btn:hover {
+        background-color: #4F9EA8;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }

@@ -167,6 +167,19 @@
                 <div class="stat-row"> <span class="stat-label">@Html.DisplayNameFor(model => model.TimeOnSite)</span> <span class="stat-value">@Model.TimeOnSite</span> </div>
                 <div class="stat-row"> <span class="stat-label">@Html.DisplayNameFor(model => model.DaysInRow)</span> <span class="stat-value">@Model.DaysInRow</span> </div>
             </div>
+
+            @* ---> НАЧАЛО: Новая карточка для "Мои сохраненные материалы" <--- *@
+            <div class="profile-card">
+                <h4 class="card-title-custom mb-3">Закладки</h4>
+                <a asp-page="/SavedArticles" class="btn login-btn saved-content-btn">
+                    Сохраненные статьи
+                </a>
+                <a asp-page="/SavedPodcasts" class="btn login-btn saved-content-btn">
+                    Сохраненные подкасты
+                </a>
+            </div>
+            @* ---> КОНЕЦ <--- *@
+
         </div>
     </div>
 </div>

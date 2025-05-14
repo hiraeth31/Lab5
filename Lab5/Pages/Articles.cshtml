@@ -108,31 +108,42 @@
 <div class="container">
     <div class="row">
 
-        <!-- Карточка Статьи 1 -->
+        <!-- Карточка Статьи 1 (предположим, это статья "Вам трудно вести сложные разговоры?", ID=3) -->
         <div class="col-lg-6 mb-4 d-flex align-items-stretch">
-            @* 
-                col-lg-6: На больших экранах (lg) карточка занимает 6 из 12 колонок (т.е. половину). На меньших - будет занимать всю ширину.
-                mb-4: Отступ снизу.
-                d-flex align-items-stretch: Заставляет карточки в одном ряду иметь одинаковую высоту.
-            *@
             <div class="card article-card w-100">
-                @* w-100 гарантирует, что карточка займет всю ширину колонки *@
-                @* ВАЖНО: Замените src на реальный путь к вашему изображению статьи в папке wwwroot *@
-                <img src="~/images/imgArticle.jpg" class="card-img-top" alt="Иллюстрация: два человека ведут сложный разговор">
+                @* Ссылка с картинки *@
+                <a asp-page="/ArticleDetails" asp-route-id="1" class="text-decoration-none">
+                    <img src="~/images/article_1.png" class="card-img-top" alt="Иллюстрация: два человека ведут сложный разговор">
+                </a>
                 <div class="card-body">
-                    <h5 class="card-title">Вам трудно вести сложные разговоры?</h5>
+                    @* Ссылка с заголовка *@
+                    <h5 class="card-title">
+                        <a asp-page="/ArticleDetails" asp-route-id="1" class="text-decoration-none text-dark">
+                            Вам трудно вести сложные разговоры?
+                        </a>
+                    </h5>
                     <p class="card-date">02.03.2025</p>
                 </div>
             </div>
         </div>
 
-        <!-- Карточка Статьи 2 -->
+        <!-- Карточка Статьи 2 (предположим, это "Синдром самозванца", ID=1) -->
         <div class="col-lg-6 mb-4 d-flex align-items-stretch">
             <div class="card article-card w-100">
-                @* ВАЖНО: Замените src на реальный путь к вашему изображению статьи в папке wwwroot *@
-                <img src="~/images/imgArticle.jpg" class="card-img-top" alt="Иллюстрация: женщина размышляет под символом идеи (лампочка)">
+                @* Ссылка с картинки *@
+                <a asp-page="/ArticleDetails" asp-route-id="2" class="text-decoration-none">
+                    @* Важно: Если у тебя другая картинка для "Синдрома самозванца" на странице списка статей,
+               используй ее здесь. Я использую imgArticle.jpg для примера, но в ArticleDetails.cshtml.cs
+               для ID=1 указана article_syndrome.png *@
+                    <img src="~/images/article_2.png" class="card-img-top" alt="Иллюстрация: женщина размышляет под символом идеи (лампочка)">
+                </a>
                 <div class="card-body">
-                    <h5 class="card-title">Что такое синдром самозванца: связан ли он с личностью?</h5>
+                    @* Ссылка с заголовка *@
+                    <h5 class="card-title">
+                        <a asp-page="/ArticleDetails" asp-route-id="2" class="text-decoration-none text-dark">
+                            Что такое синдром самозванца: связан ли он с личностью?
+                        </a>
+                    </h5>
                     <p class="card-date">01.03.2025</p>
                 </div>
             </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Lab5</title>
+    <title>@ViewData["Title"] - Be Better</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Lab5.styles.css" asp-append-version="true" />
@@ -13,7 +13,7 @@
     <header>
         <nav class="navbar navbar-expand-md py-3" style="background-color: #F8DFAC;">
             <div class="container">
-                <img src="~/images/heart.svg" alt="Обложка подкаста Виды Отдыха" class="mainImg">
+                <img src="~/images/heart.svg" alt="Лого" class="mainImg">
                 <a class="navbar-brand fw-bold fs-3" asp-page="/Index" style="color: #333;">Be Better</a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
@@ -47,10 +47,10 @@
                         @if (User.Identity != null && User.Identity.IsAuthenticated)
                         {
                             @* Ссылки для авторизованного пользователя *@
-                            <li class="nav-item">
-                                <a class="nav-link px-3 @(ViewContext.RouteData.Values["Page"]?.ToString() == "/Bookmarks" ? "active" : "")"
-                                   asp-page="/Bookmarks">Закладки</a>
-                            </li>
+                            @* <li class="nav-item"> *@
+                            @*     <a class="nav-link px-3 @(ViewContext.RouteData.Values["Page"]?.ToString() == "/Bookmarks" ? "active" : "")" *@
+                            @*        asp-page="/Bookmarks">Закладки</a> *@
+                            @* </li> *@
                             <li class="nav-item">
                                 <a class="nav-link px-3 @(ViewContext.RouteData.Values["Page"]?.ToString() == "/Profile" ? "active" : "")"
                                    asp-page="/Profile">Профиль</a>
@@ -77,11 +77,11 @@
         @RenderBody()
     </main>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            © @DateTime.Now.Year - Lab5 - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
+    @* <footer class="border-top footer text-muted" style="background-color: #F8DFAC; color: #333;"> *@
+    @*     <div class="container"> *@
+    @*         © @DateTime.Now.Year - Lab5 - <a asp-area="" asp-page="/Privacy">Privacy</a> *@
+    @*     </div> *@
+    @* </footer> *@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
