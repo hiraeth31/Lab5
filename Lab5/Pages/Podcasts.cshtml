@@ -129,165 +129,209 @@
         margin-right: 5px; /* Небольшой отступ справа от текущего времени */
     }
 
+    .podcast-bookmark-icon-form { /* Стиль для формы иконки у подкаста */
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+
+        .podcast-bookmark-icon-form button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+            .podcast-bookmark-icon-form button img {
+                width: 24px; /* Размер как у тебя был для .podcast-bookmark */
+                height: auto;
+                display: block;
+            }
+
+    .podcast-bookmark-icon-wrapper { /* Если нужно для позиционирования */
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+
+    .podcast-bookmark-icon-form { /* Если используется */
+        display: inline; /* Чтобы форма не занимала всю ширину */
+    }
+
+        .podcast-bookmark-icon-form button img,
+        .podcast-bookmark-icon-wrapper > img.require-auth-action { /* Стиль для обеих картинок */
+            width: 24px; /* Или твой размер */
+            height: auto;
+            display: block;
+        }
+
+
+    .podcast-bookmark-wrapper {
+        position: absolute;
+        top: 0px; /* Или твои значения отступа */
+        right: 0px; /* Или твои значения отступа */
+    }
+
+        /* Стили для формы, если она используется (для авторизованных) */
+        .podcast-bookmark-wrapper form {
+            display: inline; /* Чтобы форма не занимала лишнего места */
+        }
+
+        /* Общие стили для картинки-иконки, будь то в кнопке или просто img */
+        .podcast-bookmark-wrapper button img,
+        .podcast-bookmark-wrapper > img.require-auth-action {
+            width: 24px; /* Размер иконки */
+            height: auto;
+            display: block;
+            cursor: pointer;
+        }
+
+        /* Стили для кнопки внутри формы, чтобы она выглядела как просто картинка */
+        .podcast-bookmark-wrapper button.btn-reset {
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 0;
+            line-height: 1; /* Убрать лишнюю высоту */
+        }
+
 </style>
 
 <!-- Секция Поиска (такая же, как на странице Статей) -->
 <div class="search-section text-center mb-5">
     <div class="container">
-        <h2 class="mb-4 fw-bold">Что вас интересует?</h2>
+        <h2 class="mb-4 fw-bold">Что будете слушать сегодня?</h2>
         <div class="search-input-container">
-            <input type="text" class="form-control form-control-lg" placeholder="Поиск..">
+            @* <input type="text" class="form-control form-control-lg" placeholder="Поиск.."> *@
             @* ВАЖНО: Укажите правильный путь к иконке поиска *@
-            <img src="~/images/search.svg" alt="Поиск" class="search-icon" />
+            @* <img src="~/images/search.svg" alt="Поиск" class="search-icon" /> *@
         </div>
     </div>
 </div>
 
 <!-- Список Подкастов -->
-<div class="container">
-
-    @* В реальном приложении здесь был бы цикл @foreach (var podcast in Model.Podcasts) *@
-
-    <!-- Пример одного элемента подкаста -->
-    <div class="podcast-item">
-        <div class="podcast-image">
-            <img src="~/images/podcast_1.png" alt="Обложка подкаста Виды Отдыха">
-        </div>
-        <div class="podcast-content">
-            <h5 class="podcast-title">Виды отдыха, которые нужно научиться различать</h5>
-
-            @* ---> НАЧАЛО: Изменения для иконки закладок <--- *@
-            @* Добавляем класс 'require-auth-action' для JS и data-action для идентификации *@
-            <img src="~/images/bookmark_off.svg" alt="Добавить в закладки"
-                 class="podcast-bookmark require-auth-action" data-action="bookmark" />
-            @* ---> КОНЕЦ <--- *@
-
-            <div class="podcast-player">
-                @* ---> НАЧАЛО: Изменения для кнопки Play <--- *@
-                @* Заменяем символ на img и добавляем класс 'require-auth-action' *@
-                <img src="~/images/play.svg" alt="Воспроизвести" style="width: 24px; height: 24px; vertical-align: middle;" class="play-button require-auth-action" data-action="play"> @* Укажи нужный размер *@
-                @* ---> КОНЕЦ <--- *@
-                <span class="time-display current-time">00:00</span>
-                <div class="progress-bar-container" role="slider" aria-valuenow="0" aria-valuemin="0" aria-valuemax="313" aria-label="Прогресс воспроизведения">
-                    <div class="progress-bar"></div>
+<div class="container mt-4">
+    @if (Model.Podcasts != null && Model.Podcasts.Any())
+    {
+        @foreach (var podcast in Model.Podcasts)
+        {
+            <div class="podcast-item">
+                <div class="podcast-image">
+                    <img src="@podcast.ImagePath" alt="Обложка подкаста: @podcast.Title">
                 </div>
-                <span class="time-display total-duration">5:13 мин</span>
-            </div>
-        </div>
-    </div>
+                <div class="podcast-content">
+                    <h5 class="podcast-title">@podcast.Title</h5>
 
-    @* Добавь другие podcast-item аналогично *@
+                    @* ---> НАЧАЛО: ИЗМЕНЕННЫЙ БЛОК ДЛЯ ИКОНКИ ИЗБРАННОГО ПОДКАСТА <--- *@
+                    <div class="podcast-bookmark-wrapper">
+                        @if (User.Identity != null && User.Identity.IsAuthenticated)
+                        {
+                            @* Для авторизованных - форма *@
+                            <form method="post" asp-page-handler="ToggleFavoritePodcast">
+                                <input type="hidden" name="podcastId" value="@podcast.Id" />
+                                <input type="hidden" name="returnUrl" value="@Url.Page("/Podcasts")" />
+                                <button type="submit" class="btn-reset" title="@(podcast.IsFavorite ? "Убрать из закладок" : "Добавить в закладки")">
+                                    <img src="@(podcast.IsFavorite ? "/images/bookmark_on.svg" : "/images/bookmark_off.svg")"
+                                         alt="@(podcast.IsFavorite ? "В закладках" : "Добавить в закладки")">
+                                </button>
+                            </form>
+                        }
+                        else
+                        {
+                            @* Для неавторизованных - просто картинка с JS-обработчиком *@
+                            <img src="~/images/bookmark_off.svg" alt="Добавить в закладки"
+                                 class="require-auth-action"
+                                 data-action="bookmarkPodcast_@podcast.Id" @* Уникальный data-action, если их много *@
+                                 title="Добавить в закладки (требуется вход)">
+                        }
+                    </div>
+                    @* ---> КОНЕЦ <--- *@
 
-    @* ---> НАЧАЛО: HTML для модального окна авторизации (с изменениями) <--- *@
-    <div class="modal fade" id="authRequiredModal" tabindex="-1"
-         aria-labelledby="authRequiredModalLabel" aria-hidden="true"
-         data-bs-backdrop="static" @* <--- Добавлено *@
-         data-bs-keyboard="false">
-        @* <--- Добавлено *@
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="authRequiredModalLabel">Требуется авторизация</h5>
-                    @* Эта кнопка (крестик) по-прежнему будет работать *@
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                    Авторизируйтесь через Google, чтобы разблокировать больше возможностей.
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <a asp-page="/Login" class="btn login-btn px-4">Вход</a>
+                    <div class="podcast-player">
+                        <span class="require-auth-action" data-action="playPodcast_@podcast.Id" aria-label="Воспроизвести">
+                            <img src="~/images/play.svg" alt="Воспроизвести" style="width: 24px; height: 24px; vertical-align: middle;">
+                        </span>
+                        <span class="time-display current-time">00:00</span>
+                        <div class="progress-bar-container"> <div class="progress-bar"></div> </div>
+                        <span class="time-display total-duration">@podcast.Duration</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    @* ---> КОНЕЦ: HTML для модального окна авторизации <--- *@
-
+        }
+    }
+    else
+    {
+        <p>Подкастов пока нет.</p>
+    }
 </div>
+
+@* Модальное окно авторизации (если еще не в _Layout.cshtml) *@
+@if (ViewContext.HttpContext.Items["AuthModalRendered"] == null)
+{
+    <partial name="_AuthRequiredModalPartial" />
+    ViewContext.HttpContext.Items["AuthModalRendered"] = true;
+}
 
 @section Scripts {
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Получаем статус аутентификации из Razor
             const isAuthenticated = @(User.Identity?.IsAuthenticated.ToString().ToLower() ?? "false");
-
-            // Находим все интерактивные элементы (Play и Bookmark)
-            const interactiveElements = document.querySelectorAll('.require-auth-action');
-
-            // Модальное окно (если нужно)
             const authModalElement = document.getElementById('authRequiredModal');
             let authModal = authModalElement ? new bootstrap.Modal(authModalElement) : null;
-            if (!authModal && !isAuthenticated) {
-                 console.error("Элемент модального окна #authRequiredModal не найден, но пользователь не авторизован!");
-            }
 
-            // Определяем пути к иконкам один раз
-            const icons = {
-                play: '/images/play.svg',
-                pause: '/images/pause.svg',
-                bookmark_off: '/images/bookmark_off.svg',
-                bookmark_on: '/images/bookmark_on.svg'
-            };
-
-            // Добавляем обработчик клика на каждый интерактивный элемент
-            interactiveElements.forEach(element => {
+            // Обработка кликов на элементы, требующие авторизации
+            document.querySelectorAll('.require-auth-action').forEach(element => {
                 element.addEventListener('click', function (event) {
-                    const clickedElement = event.currentTarget; // Элемент, по которому кликнули (<img>)
-                    const action = clickedElement.getAttribute('data-action'); // 'play' или 'bookmark'
+                    const action = event.currentTarget.getAttribute('data-action');
 
-                    // Если пользователь НЕ аутентифицирован
                     if (!isAuthenticated) {
+                        // Предотвращаем действие по умолчанию только если это не кнопка отправки формы
+                        // (хотя для img это не так важно, но для единообразия)
                         event.preventDefault();
-                        event.stopPropagation();
+                        event.stopPropagation(); // Останавливаем всплытие, чтобы не сработали другие обработчики
+
                         if (authModal) {
                             authModal.show();
+                        } else {
+                            alert("Для этого действия требуется авторизация.");
+                            console.error("Элемент модального окна #authRequiredModal не найден!");
                         }
-                        console.log(`Действие "${action}" требует авторизации.`);
-                    }
-                    // ---> НАЧАЛО: Логика для АВТОРИЗОВАННОГО пользователя <---
-                    else {
-                        // Предотвращаем стандартное поведение, если это необходимо
-                        // event.preventDefault(); // Раскомментируй, если нужно остановить навигацию или др.
-
-                        console.log(`Авторизованный пользователь выполняет действие: "${action}"`);
-
-                        // Логика для кнопки Play/Pause
-                        if (action === 'play') {
-                            // Проверяем текущий src и меняем на противоположный
-                            if (clickedElement.src.endsWith(icons.play)) {
-                                clickedElement.src = icons.pause;
-                                clickedElement.alt = 'Пауза';
-                                // Здесь можно добавить реальную логику запуска плеера
-                                console.log('Подкаст запущен (симуляция)');
-                            } else if (clickedElement.src.endsWith(icons.pause)) {
-                                clickedElement.src = icons.play;
-                                clickedElement.alt = 'Воспроизвести';
-                                // Здесь можно добавить реальную логику остановки плеера
-                                console.log('Подкаст остановлен (симуляция)');
-                            } else {
-                                console.warn('Не удалось определить состояние кнопки Play/Pause по src:', clickedElement.src);
-                            }
-                        }
-                        // Логика для кнопки Bookmark On/Off
-                        else if (action === 'bookmark') {
-                             // Проверяем текущий src и меняем на противоположный
-                            if (clickedElement.src.endsWith(icons.bookmark_off)) {
-                                clickedElement.src = icons.bookmark_on;
-                                clickedElement.alt = 'Убрать из закладок';
-                                // Здесь можно добавить реальную логику добавления в закладки (например, AJAX-запрос на сервер)
-                                console.log('Добавлено в закладки (симуляция)');
-                            } else if (clickedElement.src.endsWith(icons.bookmark_on)) {
-                                clickedElement.src = icons.bookmark_off;
-                                clickedElement.alt = 'Добавить в закладки';
-                                // Здесь можно добавить реальную логику удаления из закладок (например, AJAX-запрос на сервер)
-                                console.log('Удалено из закладок (симуляция)');
-                            } else {
-                                console.warn('Не удалось определить состояние кнопки Bookmark по src:', clickedElement.src);
+                        // console.log(`Действие "${action}" требует авторизации.`);
+                    } else {
+                        // Если пользователь авторизован, но это элемент .require-auth-action,
+                        // который НЕ является формой (как иконка закладки для НЕавторизованных,
+                        // или кнопка Play), то здесь обрабатываем его логику.
+                        // Для иконки закладки авторизованного пользователя логика теперь в форме.
+                        if (action && action.startsWith('playPodcast')) {
+                            const img = this.querySelector('img'); // `this` здесь это кнопка .play-button
+                            if (img) {
+                                if (img.src.includes('play.svg')) {
+                                    img.src = '/images/pause.svg'; img.alt = 'Пауза';
+                                } else {
+                                    img.src = '/images/play.svg'; img.alt = 'Воспроизвести';
+                                }
                             }
                         }
                     }
-                    // ---> КОНЕЦ: Логика для АВТОРИЗОВАННОГО пользователя <---
                 });
             });
+
+            // Логика "хака" для истории после изменения избранного подкаста
+            const favoritePodcastStateJustChanged = @(Model.FavoritePodcastStateChanged.ToString().ToLower() ?? "false");
+            if (favoritePodcastStateJustChanged) {
+                console.log('Favorite podcast state just changed. Attempting history manipulation.');
+                const currentPageUrl = window.location.href;
+                window.history.go(-1);
+                setTimeout(function() {
+                    if (window.location.href.startsWith(currentPageUrl.split('#')[0].split('?')[0])) {
+                        window.history.go(1);
+                        console.log('Attempted to go forward in history for podcast page.');
+                    } else {
+                        console.warn('URL changed after history.go(-1) on podcast page, forward step skipped.');
+                    }
+                }, 0);
+            }
         });
     </script>
 }

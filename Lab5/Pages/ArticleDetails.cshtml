@@ -99,9 +99,8 @@
 
     <div class="article-detail-container">
         <div class="back-button-container">
-            @* Кнопка "Назад" - просто возвращает на предыдущую страницу в истории браузера *@
             <a href="javascript:history.back()" class="back-button" title="Назад">
-                ← @* HTML-код для стрелки влево ← или ← *@
+                ←
             </a>
         </div>
 
@@ -112,17 +111,41 @@
 
         <div class="article-meta">
             <span class="publish-date">@Model.CurrentArticle.PublishDate.ToString("dd.MM.yyyy")</span>
+
+            @* --- НАЧАЛО: Обновленный блок для иконки закладки --- *@
             <span class="bookmark-icon">
-                @* Иконка закладки - пока неактивная, без логики *@
-                <img src="~/images/bookmark_off.svg" alt="Добавить в закладки" class="require-auth-action" data-action="bookmarkArticle">
+                @if (User.Identity != null && User.Identity.IsAuthenticated)
+                {
+                    @* Для авторизованных пользователей - форма для отправки на сервер *@
+                    <form method="post" asp-page-handler="ToggleFavoriteArticle" style="display: inline;">
+                        <input type="hidden" name="articleId" value="@Model.CurrentArticle.Id" />
+                        @* CSRF токен будет добавлен автоматически ASP.NET Core для POST форм *@
+                        <button type="submit" class="btn btn-link p-0 border-0 align-baseline" title="@(Model.IsCurrentArticleFavorite ? "Убрать из закладок" : "Добавить в закладки")">
+                            <img src="@(Model.IsCurrentArticleFavorite ? "/images/bookmark_on.svg" : "/images/bookmark_off.svg")"
+                                 alt="@(Model.IsCurrentArticleFavorite ? "В закладках" : "Добавить в закладки")"
+                                 style="width: 18px; height: auto; cursor: pointer;">
+                        </button>
+                    </form>
+                }
+                else
+                {
+                    @* Для неавторизованных пользователей - картинка с JS-обработчиком для модального окна *@
+                    <img src="~/images/bookmark_off.svg" alt="Добавить в закладки"
+                         class="require-auth-action" data-action="bookmarkArticle"
+                         style="width: 18px; height: auto; cursor: pointer;"
+                         title="Добавить в закладки (требуется вход)">
+                }
             </span>
+            @* --- КОНЕЦ --- *@
         </div>
 
         <h1 class="article-title">@Model.CurrentArticle.Title</h1>
 
         <div class="article-content">
-            @Html.Raw(Model.CurrentArticle.Content) @* Используем Html.Raw для рендеринга HTML из строки *@
+            @Html.Raw(Model.CurrentArticle.Content)
         </div>
+
+        @* Секция комментариев была здесь, теперь ее нет *@
     </div>
 }
 else
@@ -130,53 +153,63 @@ else
     <div class="alert alert-warning">Статья не найдена.</div>
 }
 
-
-@* Добавим скрипт для обработки модального окна, если пользователь не авторизован и кликает на закладку *@
 @section Scripts {
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const favoriteStateJustChanged = @(Model.FavoriteStateChanged.ToString().ToLower() ?? "false");
+
+            if (favoriteStateJustChanged) {
+                console.log('Favorite state just changed. Attempting history manipulation.'); // Для отладки
+
+                // Сохраняем текущий URL, чтобы убедиться, что мы не уходим со страницы
+                const currentPageUrl = window.location.href;
+
+                // Попытка "проскочить" предыдущую запись в истории для этого же URL
+                // Это экспериментальный подход.
+                // Сначала "возвращаемся" на предыдущую запись (которая может быть "грязной")
+                window.history.go(-1);
+
+                // А затем немедленно "идем вперед" на текущую, уже "чистую" страницу.
+                // Используем setTimeout, чтобы дать history.go(-1) шанс сработать.
+                setTimeout(function() {
+                    // Проверяем, что мы все еще на той же странице, на всякий случай
+                    if (window.location.href.startsWith(currentPageUrl.split('#')[0].split('?')[0])) { // Сравниваем без якоря и query string для надежности
+                        window.history.go(1);
+                        console.log('Attempted to go forward in history.');
+                    } else {
+                        // Если URL изменился (что не должно произойти при go(-1) на тот же URL),
+                        // возможно, стоит вернуть пользователя
+                        // window.location.href = currentPageUrl; // Это может вызвать цикл, будь осторожен
+                        console.warn('URL changed after history.go(-1), forward step skipped.');
+                    }
+                }, 0); // Минимальная задержка
+
+                // window.history.replaceState все еще может быть полезен, но попробуем без него сначала
+                // if (window.history.replaceState) {
+                //     const cleanUrl = window.location.pathname + window.location.search;
+                //     window.history.replaceState({ pageState: "favorite_toggled_v2" }, document.title, cleanUrl);
+                //     console.log('History state replaced (v2).');
+                // }
+            }
+
+            // --- Остальной ваш JavaScript для модального окна и т.д. ---
             const isAuthenticated = @(User.Identity?.IsAuthenticated.ToString().ToLower() ?? "false");
-            const authModalElement = document.getElementById('authRequiredModal'); // Ищем модалку из _Layout или другого места
+            const authModalElement = document.getElementById('authRequiredModal');
             let authModal = authModalElement ? new bootstrap.Modal(authModalElement) : null;
 
-            const requireAuthElements = document.querySelectorAll('.require-auth-action');
-            requireAuthElements.forEach(element => {
+            document.querySelectorAll('img.require-auth-action[data-action="bookmarkArticle"]').forEach(element => {
                 element.addEventListener('click', function (event) {
                     if (!isAuthenticated) {
                         event.preventDefault();
                         event.stopPropagation();
-                        if (authModal) {
-                            authModal.show();
-                        } else {
-                             // Если модалки нет на странице (например, забыли добавить в _Layout), можно показать alert
-                             alert("Для этого действия требуется авторизация.");
-                             console.error("Элемент модального окна #authRequiredModal не найден!");
-                        }
-                        const action = event.currentTarget.getAttribute('data-action');
-                        console.log(`Действие "${action}" требует авторизации.`);
-                    } else {
-                        // Логика для авторизованного пользователя (если клик по закладке)
-                        const action = event.currentTarget.getAttribute('data-action');
-                        if (action === 'bookmarkArticle') {
-                            // Переключаем иконку закладки
-                            const imgElement = event.currentTarget; // Это и есть <img>
-                            if (imgElement.src.endsWith('bookmark_off.svg')) {
-                                imgElement.src = '/images/bookmark_on.svg';
-                                imgElement.alt = 'Убрать из закладок';
-                            } else {
-                                imgElement.src = '/images/bookmark_off.svg';
-                                imgElement.alt = 'Добавить в закладки';
-                            }
-                            console.log('Состояние закладки изменено (симуляция)');
-                        }
+                        if (authModal) { authModal.show(); } else { alert("Требуется авторизация."); }
                     }
                 });
             });
         });
     </script>
 
-    @* Подключи модальное окно, если оно еще не глобальное (например, в _Layout.cshtml) *@
-    @* Если оно уже есть в _Layout.cshtml, этот блок не нужен *@
+    @* <partial name="_ValidationScriptsPartial" /> *@
     @if (ViewContext.HttpContext.Items["AuthModalRendered"] == null)
     {
         <partial name="_AuthRequiredModalPartial" />

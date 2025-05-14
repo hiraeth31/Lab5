@@ -180,61 +180,112 @@
             font-size: 1.2em;
         }
 
+    .podcast-bookmark-icon-form { /* Стиль для формы иконки у подкаста */
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+
+        .podcast-bookmark-icon-form button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+            .podcast-bookmark-icon-form button img {
+                width: 20px; /* Или 24px, как на странице списка */
+                height: auto;
+                display: block;
+            }
+
 </style>
 
 <div class="container bookmarks-container">
-    @* ---> НАЧАЛО: Кнопка "Назад в профиль" <--- *@
     <div class="back-to-profile-container">
         <a asp-page="/Profile" class="btn back-to-profile-btn">
-            <span class="arrow">←</span> Назад
+            <span class="arrow">←</span> Назад в профиль
         </a>
     </div>
-    @* ---> КОНЕЦ <--- *@
 
     <h1 class="page-title">@ViewData["Title"]</h1>
 
-    @* Пример элемента подкаста в закладках (возьми из твоего Bookmarks.cshtml, #podcasts-pane) *@
-    <div class="bookmark-item podcast-item">
-        <div class="bookmark-image">
-            <img src="~/images/podcast_1.png" alt="Обложка подкаста"> @* Замени на актуальный путь *@
-        </div>
-        <div class="bookmark-content">
-            <h5 class="bookmark-title">Виды отдыха, которые нужно научиться различать</h5> @* Пример *@
-            <img src="~/images/bookmark_on.svg" alt="В закладках" class="bookmark-icon" />
-            <div class="podcast-player-simple">
-                <span class="play-icon">
-                    <img src="~/images/play.svg" alt="Воспроизвести" class="bookmark-play-button">
-                </span>
-                <span class="time-display current-time">00:00</span>
-                <div class="progress-bar-placeholder"></div>
-                <span class="time-display total-duration">5:13 мин</span>
+    @if (Model.SavedPodcastsList.Any())
+    {
+        @foreach (var podcast in Model.SavedPodcastsList)
+        {
+            <div class="bookmark-item podcast-item">
+                @* Используй .bookmark-item или .podcast-item *@
+                <div class="bookmark-image">
+                    @* Или .podcast-image *@
+                    <img src="@podcast.ImagePath" alt="Обложка: @podcast.Title">
+                </div>
+                <div class="bookmark-content">
+                    @* Или .podcast-content *@
+                    <h5 class="bookmark-title">@podcast.Title</h5>
+
+                    @* Форма для удаления из избранного *@
+                    <form method="post" asp-page-handler="RemoveFavoritePodcast" class="podcast-bookmark-icon-form">
+                        <input type="hidden" name="podcastId" value="@podcast.Id" />
+                        <input type="hidden" name="returnUrl" value="@Url.Page("/SavedPodcasts")" />
+                        <button type="submit" title="Убрать из закладок">
+                            <img src="~/images/bookmark_on.svg" alt="В закладках" />
+                        </button>
+                    </form>
+
+                    <div class="podcast-player-simple">
+                        <span class="play-icon">
+                            <img src="~/images/play.svg" alt="Воспроизвести" class="bookmark-play-button" data-podcast-id="@podcast.Id">
+                        </span>
+                        <span class="time-display current-time">00:00</span>
+                        <div class="progress-bar-placeholder"></div>
+                        <span class="time-display total-duration">@podcast.Duration</span>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    
-    @* Если список пуст:
-    <p>У вас пока нет сохраненных подкастов.</p>
-    *@
+        }
+    }
+    else
+    {
+        <p>У вас пока нет сохраненных подкастов.</p>
+        @* <p><a asp-page="/Podcasts" class="btn login-btn">Посмотреть подкасты</a></p> *@
+    }
 </div>
 
-@* Секция Scripts для переключения Play/Pause иконки подкаста *@
 @section Scripts {
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // JavaScript для Play/Pause иконок (как на странице Bookmarks.cshtml)
             const icons = { play: '/images/play.svg', pause: '/images/pause.svg' };
-            const playPauseButtons = document.querySelectorAll('.bookmark-play-button');
-            playPauseButtons.forEach(button => {
+            document.querySelectorAll('.bookmark-play-button').forEach(button => {
                 button.addEventListener('click', function(event) {
-                    const clickedButton = event.currentTarget;
-                    if (clickedButton.src.includes(icons.play)) { // Используем includes для надежности
-                        clickedButton.src = icons.pause;
-                        clickedButton.alt = 'Пауза';
-                    } else if (clickedButton.src.includes(icons.pause)) {
-                        clickedButton.src = icons.play;
-                        clickedButton.alt = 'Воспроизвести';
+                    // ... (логика переключения play/pause) ...
+                    const img = event.currentTarget;
+                     if (img.src.includes(icons.play)) {
+                        img.src = icons.pause; img.alt = 'Пауза';
+                    } else {
+                        img.src = icons.play; img.alt = 'Воспроизвести';
                     }
                 });
             });
+
+            // ---> НАЧАЛО: Логика "хака" для истории после удаления подкаста из избранного <---
+            // const favoritePodcastStateJustChangedOnSaved = @(Model.FavoritePodcastStateChangedOnSavedPage.ToString().ToLower() ?? "false");
+            // if (favoritePodcastStateJustChangedOnSaved) {
+            //     console.log('Favorite podcast state just changed on saved page. Attempting history manipulation.');
+            //     const currentPageUrl = window.location.href;
+            //     window.history.go(-1);
+            //     setTimeout(function() {
+            //         if (window.location.href.startsWith(currentPageUrl.split('#')[0].split('?')[0])) {
+            //             window.history.go(1);
+            //             console.log('Attempted to go forward in history for saved podcast page.');
+            //         } else {
+            //             console.warn('URL changed after history.go(-1) on saved podcast page, forward step skipped.');
+            //         }
+            //     }, 0);
+            // }
+            // ---> КОНЕЦ <---
         });
     </script>
 }

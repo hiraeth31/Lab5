@@ -181,57 +181,71 @@
             font-size: 1.2em; /* Делаем стрелку чуть больше текста */
         }
 
+    .bookmark-icon-form {
+        position: absolute; /* Позиционируем саму форму */
+        top: 0px;
+        right: 0px;
+    }
+
+        .bookmark-icon-form button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            /* Убираем line-height, если он влияет на размер кнопки */
+            line-height: 1;
+        }
+
+            .bookmark-icon-form button img { /* Уточняем селектор */
+                width: 20px; /* Задаем явную ширину */
+                height: auto; /* Позволяем высоте подстраиваться для сохранения пропорций SVG */
+                display: block; /* Иногда помогает с размерами SVG */
+            }
+
 </style>
 
 <div class="container bookmarks-container">
-
-    @* ---> НАЧАЛО: Кнопка "Назад в профиль" <--- *@
     <div class="back-to-profile-container">
         <a asp-page="/Profile" class="btn back-to-profile-btn">
-            <span class="arrow">←</span> Назад
+            <span class="arrow">←</span> Назад в профиль
         </a>
     </div>
-    @* ---> КОНЕЦ <--- *@
 
     <h1 class="page-title">@ViewData["Title"]</h1>
 
-    @* Пример элемента статьи в закладках (возьми из твоего Bookmarks.cshtml, #articles-pane) *@
-    <div class="bookmark-item article-item">
-        <div class="bookmark-image">
-            <a asp-page="/ArticleDetails" asp-route-id="2" class="text-decoration-none">
-                <img src="~/images/article_2.png" alt="Обложка статьи"> @* Замени на актуальный путь *@
-            </a>
-        </div>
-        <div class="bookmark-content">
-            <h5 class="bookmark-title">
-                <a asp-page="/ArticleDetails" asp-route-id="2" class="text-decoration-none text-dark">
-                    Что такое синдром самозванца: связан ли он с личностью? @* Пример *@
-                </a>
-            </h5>
-            <img src="~/images/bookmark_on.svg" alt="В закладках" class="bookmark-icon" />
-            <span class="bookmark-date">01.03.2025</span> @* Пример *@
-        </div>
-    </div>
+    @if (Model.SavedArticlesList.Any())
+    {
+        @foreach (var article in Model.SavedArticlesList)
+        {
+            <div class="bookmark-item article-item">
+                <div class="bookmark-image">
+                    <a asp-page="/ArticleDetails" asp-route-id="@article.Id" class="text-decoration-none">
+                        <img src="@article.ImagePath" alt="Обложка: @article.Title">
+                    </a>
+                </div>
+                <div class="bookmark-content">
+                    <h5 class="bookmark-title">
+                        <a asp-page="/ArticleDetails" asp-route-id="@article.Id" class="text-decoration-none text-dark">
+                            @article.Title
+                        </a>
+                    </h5>
 
-    @* Добавь сюда еще один пример или сообщение, если статей нет *@
-    <div class="bookmark-item article-item">
-        <div class="bookmark-image">
-            <a asp-page="/ArticleDetails" asp-route-id="1" class="text-decoration-none">
-                <img src="~/images/article_1.png" alt="Обложка статьи"> @* Замени на актуальный путь *@
-            </a>
-        </div>
-        <div class="bookmark-content">
-            <h5 class="bookmark-title">
-                <a asp-page="/ArticleDetails" asp-route-id="1" class="text-decoration-none text-dark">
-                    Вам трудно вести сложные разговоры? @* Пример *@
-                </a>
-            </h5>
-            <img src="~/images/bookmark_on.svg" alt="В закладках" class="bookmark-icon" />
-            <span class="bookmark-date">02.03.2025</span> @* Пример *@
-        </div>
-    </div>
+                    @* Форма для удаления из избранного *@
+                    <form method="post" asp-page-handler="RemoveFromFavorites" class="bookmark-icon-form">
+                        <input type="hidden" name="articleId" value="@article.Id" />
+                        <button type="submit" title="Убрать из закладок">
+                            <img src="~/images/bookmark_on.svg" alt="В закладках" class="bookmark-icon"/>
+                        </button>
+                    </form>
 
-    @* Если список пуст:
-    <p>У вас пока нет сохраненных статей.</p>
-    *@
+                    <span class="bookmark-date">@article.PublishDate.ToString("dd.MM.yyyy")</span>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p>У вас пока нет сохраненных статей.</p>
+        @* <p><a asp-page="/Articles" class="btn login-btn">Посмотреть статьи</a></p> *@
+    }
 </div>

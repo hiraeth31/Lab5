@@ -7,20 +7,24 @@
       "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\podcasts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\shared\\_authrequiredmodalpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\shared\\_authrequiredmodalpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\articles.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\articles.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\shared\\_authrequiredmodalpartial.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\shared\\_authrequiredmodalpartial.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\savedarticles.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\savedarticles.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\savedpodcasts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\savedpodcasts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\savedarticles.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\savedarticles.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\savedpodcasts.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\savedpodcasts.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -31,12 +35,20 @@
       "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\profile.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\profile.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\podcasts.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\podcasts.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\bookmarks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\bookmarks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\savedarticles.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\savedarticles.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\articles.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\articles.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\articledetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -47,8 +59,20 @@
       "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\articledetails.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\articles.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\articles.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\shared\\_authrequiredmodalpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\shared\\_authrequiredmodalpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\shared\\_authrequiredmodalpartial.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\shared\\_authrequiredmodalpartial.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\profile.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\profile.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\bookmarks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\bookmarks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -63,20 +87,12 @@
       "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\logout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\logout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|solutionrelative:lab5\\pages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{64DB4D5D-157F-4C0A-9013-5E38472104A3}|Lab5\\Lab5.csproj|c:\\users\\nosferatu\\source\\repos\\lab5\\lab5\\pages\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -90,11 +106,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Lab5\\Pages\\Shared\\_Layout.cshtml",
@@ -108,21 +124,211 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "ArticleDetails.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\ArticleDetails.cshtml.cs",
               "RelativeDocumentMoniker": "Lab5\\Pages\\ArticleDetails.cshtml.cs",
               "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\ArticleDetails.cshtml.cs",
               "RelativeToolTip": "Lab5\\Pages\\ArticleDetails.cshtml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAADkAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-13T05:13:08.355Z",
-              "IsPinned": true,
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SavedPodcasts.cshtml",
+              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\SavedPodcasts.cshtml",
+              "RelativeDocumentMoniker": "Lab5\\Pages\\SavedPodcasts.cshtml",
+              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\SavedPodcasts.cshtml",
+              "RelativeToolTip": "Lab5\\Pages\\SavedPodcasts.cshtml",
+              "ViewState": "AgIAANcAAAAAAAAAAAAAAPsAAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-14T09:32:22.101Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 5,
+              "Title": "Login.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Login.cshtml.cs",
+              "RelativeDocumentMoniker": "Lab5\\Pages\\Login.cshtml.cs",
+              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Login.cshtml.cs",
+              "RelativeToolTip": "Lab5\\Pages\\Login.cshtml.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAUwGQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T10:23:21.755Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SavedPodcasts.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\SavedPodcasts.cshtml.cs",
+              "RelativeDocumentMoniker": "Lab5\\Pages\\SavedPodcasts.cshtml.cs",
+              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\SavedPodcasts.cshtml.cs",
+              "RelativeToolTip": "Lab5\\Pages\\SavedPodcasts.cshtml.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAUwDsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T11:50:25.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Podcasts.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Podcasts.cshtml.cs",
+              "RelativeDocumentMoniker": "Lab5\\Pages\\Podcasts.cshtml.cs",
+              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Podcasts.cshtml.cs",
+              "RelativeToolTip": "Lab5\\Pages\\Podcasts.cshtml.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAwwEEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T11:48:15.289Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Profile.cshtml",
+              "RelativeDocumentMoniker": "Lab5\\Pages\\Profile.cshtml",
+              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Profile.cshtml",
+              "RelativeToolTip": "Lab5\\Pages\\Profile.cshtml",
+              "ViewState": "AgIAAJwAAAAAAAAAAAAAAKkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-24T10:27:22.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "_AuthRequiredModalPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Shared\\_AuthRequiredModalPartial.cshtml",
+              "RelativeDocumentMoniker": "Lab5\\Pages\\Shared\\_AuthRequiredModalPartial.cshtml",
+              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Shared\\_AuthRequiredModalPartial.cshtml",
+              "RelativeToolTip": "Lab5\\Pages\\Shared\\_AuthRequiredModalPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-13T05:14:42.286Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ArticleDetails.cshtml",
+              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\ArticleDetails.cshtml",
+              "RelativeDocumentMoniker": "Lab5\\Pages\\ArticleDetails.cshtml",
+              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\ArticleDetails.cshtml",
+              "RelativeToolTip": "Lab5\\Pages\\ArticleDetails.cshtml",
+              "ViewState": "AgIAALgAAAAAAAAAAAAwwNAAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-13T05:12:58.825Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SavedArticles.cshtml",
+              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\SavedArticles.cshtml",
+              "RelativeDocumentMoniker": "Lab5\\Pages\\SavedArticles.cshtml",
+              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\SavedArticles.cshtml",
+              "RelativeToolTip": "Lab5\\Pages\\SavedArticles.cshtml",
+              "ViewState": "AgIAANgAAAAAAAAAAAAAAPYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-14T09:31:38.658Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Articles.cshtml",
+              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Articles.cshtml",
+              "RelativeDocumentMoniker": "Lab5\\Pages\\Articles.cshtml",
+              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Articles.cshtml",
+              "RelativeToolTip": "Lab5\\Pages\\Articles.cshtml",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAAFkAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-22T09:06:55.207Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Articles.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Articles.cshtml.cs",
+              "RelativeDocumentMoniker": "Lab5\\Pages\\Articles.cshtml.cs",
+              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Articles.cshtml.cs",
+              "RelativeToolTip": "Lab5\\Pages\\Articles.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAIwAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T11:07:12.811Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Login.cshtml",
+              "RelativeDocumentMoniker": "Lab5\\Pages\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Login.cshtml",
+              "RelativeToolTip": "Lab5\\Pages\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-24T10:23:02.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Podcasts.cshtml",
+              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Podcasts.cshtml",
+              "RelativeDocumentMoniker": "Lab5\\Pages\\Podcasts.cshtml",
+              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Podcasts.cshtml",
+              "RelativeToolTip": "Lab5\\Pages\\Podcasts.cshtml",
+              "ViewState": "AgIAALkAAAAAAAAAAAAAAM0AAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-22T09:18:44.913Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SavedArticles.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\SavedArticles.cshtml.cs",
+              "RelativeDocumentMoniker": "Lab5\\Pages\\SavedArticles.cshtml.cs",
+              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\SavedArticles.cshtml.cs",
+              "RelativeToolTip": "Lab5\\Pages\\SavedArticles.cshtml.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAIwFYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T11:02:28.805Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "_AuthRequiredModalPartial.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Shared\\_AuthRequiredModalPartial.cshtml.cs",
+              "RelativeDocumentMoniker": "Lab5\\Pages\\Shared\\_AuthRequiredModalPartial.cshtml.cs",
+              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Shared\\_AuthRequiredModalPartial.cshtml.cs",
+              "RelativeToolTip": "Lab5\\Pages\\Shared\\_AuthRequiredModalPartial.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T09:41:42.905Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Logout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Logout.cshtml",
+              "RelativeDocumentMoniker": "Lab5\\Pages\\Logout.cshtml",
+              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Logout.cshtml",
+              "RelativeToolTip": "Lab5\\Pages\\Logout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-24T10:24:20.232Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
               "Title": "Logout.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Logout.cshtml.cs",
               "RelativeDocumentMoniker": "Lab5\\Pages\\Logout.cshtml.cs",
@@ -135,108 +341,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "Logout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Logout.cshtml",
-              "RelativeDocumentMoniker": "Lab5\\Pages\\Logout.cshtml",
-              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Logout.cshtml",
-              "RelativeToolTip": "Lab5\\Pages\\Logout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-24T10:24:20.232Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Articles.cshtml",
-              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Articles.cshtml",
-              "RelativeDocumentMoniker": "Lab5\\Pages\\Articles.cshtml",
-              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Articles.cshtml",
-              "RelativeToolTip": "Lab5\\Pages\\Articles.cshtml",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAcwHgAAABuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-22T09:06:55.207Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SavedArticles.cshtml",
-              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\SavedArticles.cshtml",
-              "RelativeDocumentMoniker": "Lab5\\Pages\\SavedArticles.cshtml",
-              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\SavedArticles.cshtml",
-              "RelativeToolTip": "Lab5\\Pages\\SavedArticles.cshtml",
-              "ViewState": "AgIAALAAAAAAAAAAAAAAAL8AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-14T09:31:38.658Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_AuthRequiredModalPartial.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Shared\\_AuthRequiredModalPartial.cshtml.cs",
-              "RelativeDocumentMoniker": "Lab5\\Pages\\Shared\\_AuthRequiredModalPartial.cshtml.cs",
-              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Shared\\_AuthRequiredModalPartial.cshtml.cs",
-              "RelativeToolTip": "Lab5\\Pages\\Shared\\_AuthRequiredModalPartial.cshtml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T09:41:42.905Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "_AuthRequiredModalPartial.cshtml",
-              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Shared\\_AuthRequiredModalPartial.cshtml",
-              "RelativeDocumentMoniker": "Lab5\\Pages\\Shared\\_AuthRequiredModalPartial.cshtml",
-              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Shared\\_AuthRequiredModalPartial.cshtml",
-              "RelativeToolTip": "Lab5\\Pages\\Shared\\_AuthRequiredModalPartial.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-13T05:14:42.286Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Podcasts.cshtml",
-              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Podcasts.cshtml",
-              "RelativeDocumentMoniker": "Lab5\\Pages\\Podcasts.cshtml",
-              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Podcasts.cshtml",
-              "RelativeToolTip": "Lab5\\Pages\\Podcasts.cshtml",
-              "ViewState": "AgIAALIAAAAAAAAAAAAAALkAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-22T09:18:44.913Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SavedPodcasts.cshtml",
-              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\SavedPodcasts.cshtml",
-              "RelativeDocumentMoniker": "Lab5\\Pages\\SavedPodcasts.cshtml",
-              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\SavedPodcasts.cshtml",
-              "RelativeToolTip": "Lab5\\Pages\\SavedPodcasts.cshtml",
-              "ViewState": "AgIAALQAAAAAAAAAAAAAALwAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-14T09:32:22.101Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Profile.cshtml",
-              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Profile.cshtml",
-              "RelativeDocumentMoniker": "Lab5\\Pages\\Profile.cshtml",
-              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Profile.cshtml",
-              "RelativeToolTip": "Lab5\\Pages\\Profile.cshtml",
-              "ViewState": "AgIAAJgAAAAAAAAAAAAAAJwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-24T10:27:22.135Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "Bookmarks.cshtml",
               "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Bookmarks.cshtml",
               "RelativeDocumentMoniker": "Lab5\\Pages\\Bookmarks.cshtml",
@@ -244,25 +348,11 @@
               "RelativeToolTip": "Lab5\\Pages\\Bookmarks.cshtml",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-24T10:28:30.216Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-24T10:28:30.216Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ArticleDetails.cshtml",
-              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\ArticleDetails.cshtml",
-              "RelativeDocumentMoniker": "Lab5\\Pages\\ArticleDetails.cshtml",
-              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\ArticleDetails.cshtml",
-              "RelativeToolTip": "Lab5\\Pages\\ArticleDetails.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFYAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-13T05:12:58.825Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 16,
               "Title": "Profile.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Profile.cshtml.cs",
               "RelativeDocumentMoniker": "Lab5\\Pages\\Profile.cshtml.cs",
@@ -270,12 +360,11 @@
               "RelativeToolTip": "Lab5\\Pages\\Profile.cshtml.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAAAAoAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T10:27:30.243Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-24T10:27:30.243Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 18,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Index.cshtml",
               "RelativeDocumentMoniker": "Lab5\\Pages\\Index.cshtml",
@@ -287,31 +376,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Login.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Login.cshtml.cs",
-              "RelativeDocumentMoniker": "Lab5\\Pages\\Login.cshtml.cs",
-              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Login.cshtml.cs",
-              "RelativeToolTip": "Lab5\\Pages\\Login.cshtml.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABwAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T10:23:21.755Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Login.cshtml",
-              "RelativeDocumentMoniker": "Lab5\\Pages\\Login.cshtml",
-              "ToolTip": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\Login.cshtml",
-              "RelativeToolTip": "Lab5\\Pages\\Login.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-24T10:23:02.62Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 19,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Program.cs",
               "RelativeDocumentMoniker": "Lab5\\Program.cs",
@@ -323,7 +388,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 23,
               "Title": "About.cshtml",
               "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\Pages\\About.cshtml",
               "RelativeDocumentMoniker": "Lab5\\Pages\\About.cshtml",
@@ -335,7 +400,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 20,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\Nosferatu\\source\\repos\\Lab5\\Lab5\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "Lab5\\wwwroot\\css\\site.css",
